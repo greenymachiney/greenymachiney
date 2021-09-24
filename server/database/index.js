@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const mongoUri = 'mongodb://localhost/drinkdat';
 
 const db = mongoose.connect(mongoUri, {
@@ -9,5 +10,5 @@ const db = mongoose.connect(mongoUri, {
 module.exports = {
   db,
   Drink: require('./Drink.js'),
-  User: require('./User.js')
+  User: require('./User.js'),
 };
