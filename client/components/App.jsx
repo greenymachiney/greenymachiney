@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +20,17 @@ class App extends Component {
 
   render() {
     return (
-    <h1>Drink Dat</h1>
+    <Router>
+      <div>
+        <h1>Drink Dat</h1>
+        <div>
+          <a href='/auth/google'>Google Log In</a>
+        </div>
+        <div>
+          <a href='/auth/logout'>Google Log Out</a>
+        </div>
+      </div>
+    </Router>
     )
   }
 }
