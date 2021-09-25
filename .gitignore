@@ -105,3 +105,4 @@ dist
 
 #keys
 config/keysconfig/keys.js
+config/keys.js
