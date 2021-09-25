@@ -20,6 +20,7 @@
   "homepage": "https://github.com/greenymachiney/greenymachiney#readme",
   "dependencies": {
     "axios": "^0.21.4",
+    "cookie-parser": "^1.4.5",
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.7",
