@@ -41,9 +41,9 @@ app.use('/drunk', drunkRouter)
 //   res.redirect('/');
 // })
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(DIST_DIR, 'index.html'))
-// })
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(DIST_DIR, 'index.html'))
+})
 
 
 

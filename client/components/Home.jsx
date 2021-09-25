@@ -1,23 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const getCookie = () => {
-  axios.get('/' , (req, res) => {
-    console.log(req.cookies);
-  })
-}
 
-const Home = () => (
-  <div>
+const Home = () => {
+  console.log(window.location.pathname);
+  
+  return (
     <div>
-      <button>
-        <a href='/auth/google'>Google Log In</a>
-      </button>
-      <button onClick={getCookie}>
-        Cookies
-      </button>
+      welcome to the homepage
     </div>
-  </div>
-)
+  )
+}
 
 export default Home;

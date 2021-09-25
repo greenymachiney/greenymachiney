@@ -12,7 +12,7 @@ authRouter.get('/google/redirect', passport.authenticate('google'), (req, res) =
   //console.log('COOKIE ', req.user.username);
   //res.cookie('user', req.user.username);
   //console.log(req.cookies);
-  res.redirect(`/users/${req.user.username}`);
+  res.redirect(`/${req.user.username}`);
   //res.json(req.user.username);
 })
 

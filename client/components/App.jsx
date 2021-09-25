@@ -8,8 +8,11 @@ import {
 } from "react-router-dom";
 import axios from 'axios';
 
-import Home from './Home.jsx';
+import Login from './Login.jsx';
 import Profile from './Profile.jsx';
+import Home from './Home.jsx';
+import User from './User.jsx';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -31,14 +34,12 @@ class App extends Component {
         </div> */}
       <Router>
         <Switch>
-          <Route path="/">
-            <Home />
+          <Route exact path="/" component={Login}>
           </Route>
           <Route path="/profile" component={Profile}>
             {/* <Profile /> */}
           </Route>
-          <Route path='/users/:username'>
-            <div>logged in</div>
+          <Route path="/:users" component={Home}>
           </Route>
           <Route>
             <div>404 page not available</div>
