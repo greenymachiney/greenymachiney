@@ -4,6 +4,7 @@ const UserSchema = new mongoose.Schema({
   username: String,
   googleId: String,
   thumbnail: String,
+  liquorList: [],
   drinks: []
 });
 
