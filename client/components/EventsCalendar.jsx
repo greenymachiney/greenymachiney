@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import moment from 'moment';
 
+import { format, subHours, startOfMonth } from 'date-fns';
 import { MonthlyBody, MonthlyCalendar, MonthlyNav, DefaultMonthlyEventItem} from '@zach.codes/react-calendar';
+import 'react-big-calendar/dist/calendar-tailwind.css';
 
 
 
 const EventsCalendar = () => {
-  let [currentMonth, setCurrentMonth] = useState<Date>(
-    startOfMonth(new Date())
-  );
+
+  const [ currentMonth, setCurrentMonth ] = useState(new Date());
 
   return (
     <MonthlyCalendar
@@ -17,8 +19,7 @@ const EventsCalendar = () => {
       <MonthlyNav />
       <MonthlyBody
         events={[
-          { title: 'Call John', date: subHours(new Date(), 2) },
-          { title: 'Call John', date: subHours(new Date(), 1) },
+
           { title: 'Meeting with Bob', date: new Date() },
         ]}
         renderDay={data =>
