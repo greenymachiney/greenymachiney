@@ -58,8 +58,6 @@ drunkRouter.get('/cocktailByName/:name', (req, res) => {
 
 drunkRouter.post('/saveCocktail', (req, res) => {
   const { drink } = req.body;
-  console.log(req.user.username, 'req')
-  console.log(req.cookies.username, 'COOKIE')
   User.updateOne({ username: req.user.username}, {
     $push: {
       drinks: drink
@@ -69,9 +67,13 @@ drunkRouter.post('/saveCocktail', (req, res) => {
       console.log(response);
       res.sendStatus(200);
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+      console.error(err);
+      res.sendStatus(404);
+    });
 
 })
+
 
 
 drunkRouter.get('/savedDrinks', (req, res) => {
@@ -81,5 +83,24 @@ drunkRouter.get('/savedDrinks', (req, res) => {
     res.send(user.savedDrinks)})
   .catch(err => console.error(err))
 })
+
+drunkRouter.get('/liquorList', (req, res) => {
+  User.findOne({ username: req.user.username})
+  .then((user) => {
+    console.log('DATABASE RES',user)
+    res.send(user.liquorList)})
+  .catch(err => console.error(err))
+})
+
+drunkRouter.put('/liquorList', (req, res) => {
+  User.findOneAndUpdate( {$push: {liquorList: req.body.liquorList}})
+        .then(() => res.status(200).send())
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(404);
+        });
+ 
+});
+
 
 module.exports = drunkRouter;
