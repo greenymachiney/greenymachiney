@@ -22,7 +22,10 @@ handleClick() {
 
 getLiquorList() {
   axios.get('/drunk/liquorList')
-  .then(({data}) => this.setState({liquorList: data}))
+  .then(({data}) => {
+    console.log(data)
+    this.setState({liquorList: data})})
+    .then(() => console.log(this.state.liquorList))
 }
 
 componentDidMount() {
@@ -33,13 +36,15 @@ componentDidMount() {
   return (
     <div>
       <div>
-       
-      </div>
-      <div>
      <input type='text' name='liquor' value={this.state.liquor} onChange={(event) =>  this.setState({liquor: event.target.value})}/>
      <div>{this.state.liquor}</div>
         <button onClick={this.handleClick}>add liquor</button>
         </div>
+        <ul>
+       {this.state.liquorList.map((liquor, index) => (
+           <li key={index}>{liquor}</li>
+       ))}
+      </ul>
     </div>
   );
   }

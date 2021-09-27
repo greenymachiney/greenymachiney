@@ -56,14 +56,15 @@ drunkRouter.get('/cocktailByName/:name', (req, res) => {
 })
 
 drunkRouter.get('/liquorList', (req, res) => {
-  User.findOne({ username: req.cookies.username})
-  .then((user) => res.send(user.liquorList))
+  User.findOne({ username: req.user.username})
+  .then((user) => {
+    console.log('DATABASE RES',user)
+    res.send(user.liquorList)})
   .catch(err => console.error(err))
 })
 
 drunkRouter.put('/liquorList', (req, res) => {
-  console.log()
-  User.findOneAndUpdate({username: req.cookies.username}, {$push: {liquorList: req.params.liquorList}})
+  User.findOneAndUpdate( {$push: {liquorList: req.body.liquorList}})
         .then(() => res.status(200).send())
         .catch((err) => {
           console.error(err);
