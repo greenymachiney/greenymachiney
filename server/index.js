@@ -45,9 +45,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(DIST_DIR, 'index.html'))
 })
 
-
-
-
 app.listen(PORT, () => {
   console.log(`
     Server is listening at:
