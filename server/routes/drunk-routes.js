@@ -73,4 +73,13 @@ drunkRouter.post('/saveCocktail', (req, res) => {
 
 })
 
+
+drunkRouter.get('/savedDrinks', (req, res) => {
+  User.findOne({ username: req.user.username})
+  .then((user) => {
+    console.log('DATABASE RES',user)
+    res.send(user.savedDrinks)})
+  .catch(err => console.error(err))
+})
+
 module.exports = drunkRouter;

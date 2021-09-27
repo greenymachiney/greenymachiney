@@ -13,8 +13,8 @@ class Recipes extends React.Component{
 
 
   getSavedDrinks() {
-    axios.get('/drunk/saveCocktail')
-      .then(({ data }) => console.log(data, 'hey'))
+    axios.get('/drunk/savedDrinks')
+      .then(({ data }) => this.setState({savedDrinks: data}))
       .catch(err => console.error(err));
   }
 
@@ -28,12 +28,12 @@ class Recipes extends React.Component{
   return (
     <div className="list-group">
       <h1 className='drinkBookHeader'>Drink Book</h1>
-    {/* {
-    !getSavedDrinks.length ? null : getSavedDrinks().map((drink, i) => (
-      <div>{drink}</div>
+    {
+    !this.getSavedDrinks.length ? null : getSavedDrinks().map((drink, i) => (
+      <div>{drink.StrDrink}</div>
 
     ))
-    } */}
+    }
   <a href="#" className="list-group-item list-group-item-action" aria-current="true">
     <div className="d-flex w-100 justify-content-between">
       <h5 className="mb-1">Drink 1</h5>
