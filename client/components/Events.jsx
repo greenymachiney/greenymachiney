@@ -1,12 +1,22 @@
 import React, { useState } from "react";
+import ApiCalendar from 'react-google-calendar-api';
 
-const Events = () => {
+class Events extends React.Component {
 
-  return (
-    <div>
-      plan a party
-    </div>
-  )
+  constructor(props) {
+    super(props)
+    this.state = {
+      
+    }
+  }
+  render() {
+
+    return (
+      <div>
+        plan a party
+      </div>
+    )
+  }
 }
 
 export default Events;
