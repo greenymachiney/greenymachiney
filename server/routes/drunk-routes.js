@@ -58,8 +58,7 @@ drunkRouter.get('/cocktailByName/:name', (req, res) => {
 
 drunkRouter.post('/saveCocktail', (req, res) => {
   const { drink } = req.body;
-  //on jakes -> needs to be req.user.username
-  User.updateOne({ username: req.cookies.username}, {
+  User.updateOne({ username: req.user.username}, {
     $push: {
       drinks: drink
     }
