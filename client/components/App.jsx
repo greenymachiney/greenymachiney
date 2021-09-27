@@ -10,15 +10,19 @@ import axios from 'axios';
 
 import Login from './Login.jsx';
 import User from './User.jsx';
+import EventsCalendar from './EventsCalendar.jsx';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      drinks: []
     };
 
   }
+
+
+
 
   render() {
     return (
