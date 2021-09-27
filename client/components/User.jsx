@@ -11,7 +11,7 @@ import {
 import BarCart from './BarCart.jsx';
 import Recipes from './Recipes.jsx';
 import Search from './Search.jsx';
-import Events from './Events.jsx';
+import EventsCalendar from "./EventsCalendar.jsx";
 import Login from "./Login.jsx";
 
 const User = () => {
@@ -34,7 +34,7 @@ const User = () => {
             <Link to={`${url}/search`}>Get a new recipe!</Link>
           </li>
           <li>
-            <Link to={`${url}/events`}>Cocktail Parties</Link>
+            <Link to={`${url}/events`}>Plan a Cocktail Party!</Link>
           </li>
         </ul>
         <hr />
@@ -52,7 +52,7 @@ const User = () => {
             <Search />
           </Route>
           <Route path={`${path}/events`}>
-            <Events />
+            <EventsCalendar />
           </Route>
         </Switch>
       </div>
