@@ -29,8 +29,8 @@ drunkRouter.get('/randomCocktail', (req, res) => {
     })
 });
 
-drunkRouter.get('/cocktailByIngredient', (req , res) => {
-  const { ingredient } = req.body;
+drunkRouter.get('/cocktailByIngredient/:ingredient', (req , res) => {
+  const { ingredient } = req.params;
   getCocktailByIngredient(ingredient)
     .then(response => {
       //console.log(response.data);
@@ -42,8 +42,8 @@ drunkRouter.get('/cocktailByIngredient', (req , res) => {
     })
 });
 
-drunkRouter.get('/cocktailByName', (req, res) => {
-  const { name } = req.body;
+drunkRouter.get('/cocktailByName/:name', (req, res) => {
+  const { name } = req.params;
   getCocktailByName(name)
     .then(response => {
       //console.log(response.data);
