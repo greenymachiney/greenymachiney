@@ -13,9 +13,6 @@ const Login = () => (
       <button>
         <a href='/auth/google'>Google Log In</a>
       </button>
-      <button onClick={getCookie}>
-        Cookies
-      </button>
     </div>
   </div>
 )

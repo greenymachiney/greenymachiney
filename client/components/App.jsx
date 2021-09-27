@@ -9,8 +9,6 @@ import {
 import axios from 'axios';
 
 import Login from './Login.jsx';
-import Profile from './Profile.jsx';
-import Home from './Home.jsx';
 import User from './User.jsx';
 
 class App extends Component {
@@ -26,20 +24,11 @@ class App extends Component {
     return (
       <div>
         <h1>Drink Dat</h1>
-        {/* <div>
-          <a href='/auth/google'>Google Log In</a>
-        </div>
-        <div>
-          <a href='/auth/logout'>Google Log Out</a>
-        </div> */}
       <Router>
         <Switch>
           <Route exact path="/" component={Login}>
           </Route>
-          <Route path="/profile" component={Profile}>
-            {/* <Profile /> */}
-          </Route>
-          <Route path="/:users" component={Home}>
+          <Route path="/:users" component={User}>
           </Route>
           <Route>
             <div>404 page not available</div>
