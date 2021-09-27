@@ -15,6 +15,7 @@ module.exports = {
   output: {
     path: DIST_DIR,
     filename: '[name].bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -34,9 +35,12 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(SRC_DIR, 'index.html'),
-    }),
-  ],
+  devServer: {
+    historyApiFallback: true,
+  },
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     template: path.resolve(SRC_DIR, 'index.html'),
+  //   }),
+  // ],
 };
