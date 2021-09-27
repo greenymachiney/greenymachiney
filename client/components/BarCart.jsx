@@ -22,10 +22,7 @@ handleClick() {
 
 getLiquorList() {
   axios.get('/drunk/liquorList')
-  .then(({data}) => {
-    console.log(data)
-    this.setState({liquorList: data})})
-    .then(() => console.log(this.state.liquorList))
+  .then(({data}) => this.setState({liquorList: data}))
 }
 
 componentDidMount() {
