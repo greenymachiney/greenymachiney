@@ -2,25 +2,25 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const Search = () => {
-  const [random, setRandom] = useState({});
-  const [name, setName] = useState('');
+  const [drink, setDrink] = useState({});
+  const [search, setSearch] = useState('');
   const [drinks, setDrinks] = useState([]);
 
   const getRandomCocktail = () => {
     axios.get('/drunk/randomCocktail')
       .then(({ data }) => {
         console.log('RANDOM COCKTAIL: ', data[0]);
-        setRandom(data[0]);
+        setDrink(data[0]);
       })
       .catch(err => console.error(err));
   }
 
-  const getIngredients = (drink) => {
+  const getIngredients = () => {
     const ingredients = [];
 
     let count = 1;
-    while (random[`strIngredient${count}`] !== null) {
-      ingredients.push(random[`strIngredient${count}`]);
+    while (drink[`strIngredient${count}`]) {
+      ingredients.push(drink[`strIngredient${count}`]);
       count++
     };
 
@@ -28,7 +28,7 @@ const Search = () => {
   }
 
   const getCocktailByName = () => {
-    axios.get(`/drunk/cocktailByName/${name}`)
+    axios.get(`/drunk/cocktailByName/${search}`)
       .then(({ data }) => {
         console.log('DRINKS BY NAME LIST: ', data);
         setDrinks(data);
@@ -40,8 +40,14 @@ const Search = () => {
     axios.get(`/drunk/cocktailByName/${name}`)
       .then(({ data }) => {
         console.log('drink by exact name ', data[0]);
-        setRandom(data[0]);
+        setDrink(data[0]);
       })
+      .catch(err => console.error(err));
+  }
+
+  const saveDrink = () => {
+    axios.post('/drunk/saveCocktail', { drink: drink })
+      .then(() => console.log('saved!'))
       .catch(err => console.error(err));
   }
 
@@ -53,26 +59,33 @@ const Search = () => {
         </button>
       </div>
       {
-        !random.strDrink ? null :
+        !drink.strDrink ? null :
         <div>
-          <div>Drink Name: {random.strDrink}</div>
-          <div><img src={random.strDrinkThumb} height='300px'></img></div>
+          <div>Drink Name: {drink.strDrink}</div>
+          <div><img src={drink.strDrinkThumb} height='300px'></img></div>
           <div>
             Ingredients:
             <ul>
               {
-                getIngredients(random).map((ingredient, i) => <li key={i}>{random[`strMeasure${i + 1}`]} {ingredient}</li>)
+                getIngredients().map((ingredient, i) => <li key={i}>{drink[`strMeasure${i + 1}`]} {ingredient}</li>)
               }
             </ul>
           </div>
           <div>
             Instructions:
-            <div>{random.strInstructions}</div>
+            <div>{drink.strInstructions}</div>
           </div>
+
+          <div>
+            <button onClick={saveDrink}>
+              Save this drink to your drink book!
+            </button>
+          </div>
+
         </div>
       }
       <div>
-        <input value={name} onChange={(e) => setName(e.target.value)}/>
+        <input value={search} onChange={(e) => setSearch(e.target.value)}/>
         <button onClick={getCocktailByName}>
           Get Drinks By Name
         </button>
