@@ -22,9 +22,6 @@ class App extends Component {
 
 
 
-  getAllDrinks() {
-    axios.get()
-  }
 
   render() {
     return (
