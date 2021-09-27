@@ -1,12 +1,25 @@
 import React, { useState } from "react";
+import { getCocktailByIngredient } from "../../server/api/getCocktail";
 
-const BarCart = () => {
+class BarCart extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      allLiquors: [],
+    };
+  }
 
+
+
+  render() {
   return (
     <div>
-      welcome to the barcart
+      <input type="text">
+        </input>
+        <button>add liquor</button>
     </div>
   )
+  }
 }
 
 export default BarCart;
