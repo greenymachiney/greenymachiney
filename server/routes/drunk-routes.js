@@ -93,13 +93,13 @@ drunkRouter.get('/liquorList', (req, res) => {
 })
 
 drunkRouter.put('/liquorList', (req, res) => {
-  User.findOneAndUpdate( {$push: {liquorList: req.body.liquorList}})
+  User.findOne({ username: req.user.username})
+  .then(user => !user.liquorList.includes(req.body.liquorList) ? User.findOneAndUpdate({$push: {liquorList: req.body.liquorList}})
         .then(() => res.status(200).send())
         .catch((err) => {
           console.error(err);
           res.sendStatus(404);
-        });
- 
+        }) : res.sendStatus(200))
 });
 
 
