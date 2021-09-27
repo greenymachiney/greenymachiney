@@ -2,7 +2,7 @@ const { Router } = require('express');
 const drunkRouter = Router();
 
 const { getRandomCocktail, getCocktailByIngredient, getCocktailByName } = require('../api/getCocktail');
-
+const { User } = require('../database');
 // const authCheck = (req, res, next) => {
 //   if (!req.user) {
 //     //if user not logged in, redirect
@@ -54,5 +54,22 @@ drunkRouter.get('/cocktailByName/:name', (req, res) => {
       res.sendStatus(404);
     })
 })
+
+drunkRouter.get('/liquorList', (req, res) => {
+  User.findOne({ username: req.cookies.username})
+  .then((user) => res.send(user.liquorList))
+  .catch(err => console.error(err))
+})
+
+drunkRouter.put('/liquorList', (req, res) => {
+  console.log()
+  User.findOneAndUpdate({username: req.cookies.username}, {$push: {liquorList: req.params.liquorList}})
+        .then(() => res.status(200).send())
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(404);
+        });
+ 
+});
 
 module.exports = drunkRouter;

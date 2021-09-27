@@ -4,7 +4,7 @@ const UserSchema = new mongoose.Schema({
   username: String,
   googleId: String,
   thumbnail: String,
-  liqourList: [String],
+  liquorList: [],
 });
 
 const User = mongoose.model('User', UserSchema);

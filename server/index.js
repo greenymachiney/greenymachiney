@@ -45,16 +45,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(DIST_DIR, 'index.html'))
 })
 
-app.put('/user/liquorList', (req, res) => {
-  User.findOneAndUpdate({liquorList: []}, {$push: {liquorList: req.body.data}})
-        .then(() => res.status(200).send())
-        .catch((err) => {
-          console.error(err);
-          res.sendStatus(404);
-        });
- 
-});
-
 
 app.listen(PORT, () => {
   console.log(`
