@@ -2,6 +2,7 @@ const { Router } = require('express');
 const drunkRouter = Router();
 
 const { getRandomCocktail, getCocktailByIngredient, getCocktailByName } = require('../api/getCocktail');
+const { User } = require('../database');
 
 // const authCheck = (req, res, next) => {
 //   if (!req.user) {
@@ -29,8 +30,8 @@ drunkRouter.get('/randomCocktail', (req, res) => {
     })
 });
 
-drunkRouter.get('/cocktailByIngredient', (req , res) => {
-  const { ingredient } = req.body;
+drunkRouter.get('/cocktailByIngredient/:ingredient', (req , res) => {
+  const { ingredient } = req.params;
   getCocktailByIngredient(ingredient)
     .then(response => {
       //console.log(response.data);
@@ -42,8 +43,8 @@ drunkRouter.get('/cocktailByIngredient', (req , res) => {
     })
 });
 
-drunkRouter.get('/cocktailByName', (req, res) => {
-  const { name } = req.body;
+drunkRouter.get('/cocktailByName/:name', (req, res) => {
+  const { name } = req.params;
   getCocktailByName(name)
     .then(response => {
       //console.log(response.data);
@@ -53,6 +54,53 @@ drunkRouter.get('/cocktailByName', (req, res) => {
       console.error(err);
       res.sendStatus(404);
     })
+});
+
+drunkRouter.post('/saveCocktail', (req, res) => {
+  const { drink } = req.body;
+  User.updateOne({ username: req.user.username}, {
+    $push: {
+      drinks: drink
+    }
+  })
+    .then(response => {
+      console.log(response);
+      res.sendStatus(200);
+    })
+    .catch(err => {
+      console.error(err);
+      res.sendStatus(404);
+    });
+
 })
+
+
+
+drunkRouter.get('/savedDrinks', (req, res) => {
+  User.findOne({ username: req.user.username})
+  .then((user) => {
+    console.log('DATABASE RES',user)
+    res.send(user.savedDrinks)})
+  .catch(err => console.error(err))
+})
+
+drunkRouter.get('/liquorList', (req, res) => {
+  User.findOne({ username: req.user.username})
+  .then((user) => {
+    console.log('DATABASE RES',user)
+    res.send(user.liquorList)})
+  .catch(err => console.error(err))
+})
+
+drunkRouter.put('/liquorList', (req, res) => {
+  User.findOne({ username: req.user.username})
+  .then(user => !user.liquorList.includes(req.body.liquorList) ? User.findOneAndUpdate({$push: {liquorList: req.body.liquorList}})
+        .then(() => res.status(200).send())
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(404);
+        }) : res.sendStatus(200))
+});
+
 
 module.exports = drunkRouter;
