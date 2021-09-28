@@ -81,6 +81,7 @@ drunkRouter.put('/saveCocktail', (req, res) => {
 
 
 
+
 drunkRouter.get('/savedDrinks', (req, res) => {
   User.findOne({ username: req.user.username})
   .then((user) => {
@@ -88,6 +89,7 @@ drunkRouter.get('/savedDrinks', (req, res) => {
     res.send(user.savedDrinks)})
   .catch(err => console.error(err))
 })
+
 
 drunkRouter.get('/liquorList', (req, res) => {
   User.findOne({ username: req.user.username})
@@ -107,5 +109,14 @@ drunkRouter.put('/liquorList', (req, res) => {
         }) : res.sendStatus(200))
 });
 
+
+
+drunkRouter.get('/drinks', (req, res) => {
+  User.findOne({ username: req.user.username})
+  .then((user) => {
+    console.log('DATABASE RES',user)
+    res.send(user.drinks)})
+  .catch(err => console.error(err))
+})
 
 module.exports = drunkRouter;
