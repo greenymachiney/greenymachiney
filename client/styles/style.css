@@ -6,6 +6,27 @@
   font-size: 30px;
 }
 
+
+
+.list-group-item {
+  background: grey
+}
+
+.btn-buggy {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: flexbox;
+  float: left;
+  font-size: 18px;
+}
+
+.drinkCat {
+  text-decoration: underline;
+
 header.masthead {
   background: url("../img/cocktail2.jpeg") no-repeat center center;
   background-size: cover;
@@ -49,4 +70,5 @@ header.masthead {
 
 .footer {
   background-color: #beda4a;
+
 }
