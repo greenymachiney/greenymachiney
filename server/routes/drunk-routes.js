@@ -120,15 +120,15 @@ drunkRouter.get('/drinks', (req, res) => {
 })
 
 
-drunkRouter.delete('/drinks', (req, res) => {
-  const { drink } = req.body.user.drinks;
-  console.log(req.body.user.drinks, 'drinks')
-  User.findOneAndDelete({$pull: {drinks: req.body.drinks}})
-  .then(() => res.sendStatus(200))
-  .catch((err) => {
-    console.error(err);
-    res.sendStatus(404);
-  })
-});
+// drunkRouter.put('/drinks', (req, res) => {
+//   const { drink } = req.body.user.drinks;
+//   console.log(req.body.user.drinks, 'drinks')
+//   User.findOneAndUpdate({$pull: {drinks: req.body.drinks}})
+//   .then(() => res.sendStatus(200))
+//   .catch((err) => {
+//     console.error(err);
+//     res.sendStatus(404);
+//   })
+// });
 
 module.exports = drunkRouter;
