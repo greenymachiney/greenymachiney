@@ -15,6 +15,8 @@ class BarCart extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.getSpecificLiquorRecipes = this.getSpecificLiquorRecipes.bind(this);
     this.getCocktailByExactName = this.getCocktailByExactName.bind(this);
+    this.getIngredients = this.getIngredients.bind(this);
+    this.saveDrink = this.saveDrink.bind(this);
   }
 
 handleClick() {
@@ -32,7 +34,6 @@ getLiquorList() {
 getSpecificLiquorRecipes(liquor) {
   axios.get(`/drunk/cocktailByIngredient/${liquor}`)
   .then(({data}) => {
-    console.log(data);
    this.setState({drinks: data})
     })
   }
@@ -47,12 +48,19 @@ getCocktailByExactName(name) {
 
 getIngredients() {
   const ingredients = [];
+  console.log('DRINK STATE IN GET ING', this.state.drink);
   let count = 1;
-  while (drink[`strIngredient${count}`]) {
-    ingredients.push(drink[`strIngredient${count}`]);
+  while (this.state.drink[`strIngredient${count}`]) {
+    ingredients.push(this.state.drink[`strIngredient${count}`]);
     count++
   };
   return ingredients;
+}
+
+saveDrink() {
+  axios.post('/drunk/saveCocktail', {drink: this.state.drink})
+  .then(()=> console.log('saved!'))
+  .catch(err => console.error(err));
 }
 
 componentDidMount() {
@@ -60,6 +68,7 @@ componentDidMount() {
 }
 
   render() {
+  const {drink} = this.state
   return (
     <div>
       <div>
@@ -72,7 +81,7 @@ componentDidMount() {
             Ingredients:
             <ul>
               {
-                getIngredients().map((ingredient, i) => <li key={i}>{drink[`strMeasure${i + 1}`]} {ingredient}</li>)
+                this.getIngredients().map((ingredient, i) => <li key={i}>{drink[`strMeasure${i + 1}`]} {ingredient}</li>)
               }
             </ul>
           </div>
@@ -82,7 +91,7 @@ componentDidMount() {
           </div>
 
           <div>
-            <button onClick={saveDrink}>
+            <button onClick={this.saveDrink}>
               Save this drink to your drink book!
             </button>
           </div>
@@ -105,13 +114,18 @@ componentDidMount() {
           <div>
             <ul>
               {
-                this.state.drinks.map((drink, i) => ( <li key={i} onClick={() => getCocktailByExactName(drink.strDrink)}>{drink.strDrink}</li>))
+                this.state.drinks.map((drink, i) => (
+                  <li key={i} onClick={() => {
+                      const drinkObj = this.getCocktailByExactName(drink.strDrink)
+                      this.setState({drink: {drinkObj}})
+                    }}>{drink.strDrink}</li>
+                ))
               }
             </ul>
           </div>
         }
     </div>
-  );
+  )
   }
 }
 
