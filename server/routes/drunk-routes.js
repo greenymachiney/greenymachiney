@@ -43,6 +43,9 @@ drunkRouter.get('/cocktailByName/:name', (req, res) => {
   const { name } = req.params;
   getCocktailByName(name)
     .then(response => {
+
+
+
       res.status(200).send(response.data.drinks);
     })
     .catch(err => {
@@ -108,9 +111,21 @@ drunkRouter.put('/liquorList', (req, res) => {
 drunkRouter.get('/drinks', (req, res) => {
   User.findOne({ username: req.user.username})
   .then((user) => {
-    console.log('DATABASE RES',user)
+    //console.log('DATABASE RES',user)
     res.send(user.drinks)})
   .catch(err => console.error(err))
 })
+
+
+// drunkRouter.put('/drinks', (req, res) => {
+//   const { drink } = req.body.user.drinks;
+//   console.log(req.body.user.drinks, 'drinks')
+//   User.findOneAndUpdate({$pull: {drinks: req.body.drinks}})
+//   .then(() => res.sendStatus(200))
+//   .catch((err) => {
+//     console.error(err);
+//     res.sendStatus(404);
+//   })
+// });
 
 module.exports = drunkRouter;
