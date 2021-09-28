@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import Drink from "./Drink.jsx";
+
 const Search = () => {
   const [drink, setDrink] = useState({});
-  const [search, setSearch] = useState('');
   const [drinks, setDrinks] = useState([]);
+  const [search, setSearch] = useState('');
 
   const getRandomCocktail = () => {
     axios.get('/drunk/randomCocktail')
@@ -13,18 +15,6 @@ const Search = () => {
         setDrink(data[0]);
       })
       .catch(err => console.error(err));
-  }
-
-  const getIngredients = () => {
-    const ingredients = [];
-
-    let count = 1;
-    while (drink[`strIngredient${count}`]) {
-      ingredients.push(drink[`strIngredient${count}`]);
-      count++
-    };
-
-    return ingredients;
   }
 
   const getCocktailByName = () => {
@@ -46,7 +36,7 @@ const Search = () => {
   }
 
   const saveDrink = () => {
-    axios.post('/drunk/saveCocktail', { drink: drink })
+    axios.put('/drunk/saveCocktail', { drink: drink })
       .then(() => console.log('saved!'))
       .catch(err => console.error(err));
   }
@@ -60,30 +50,9 @@ const Search = () => {
       </div>
       {
         !drink.strDrink ? null :
-        <div>
-          <div>Drink Name: {drink.strDrink}</div>
-          <div><img src={drink.strDrinkThumb} height='300px'></img></div>
-          <div>
-            Ingredients:
-            <ul>
-              {
-                getIngredients().map((ingredient, i) => <li key={i}>{drink[`strMeasure${i + 1}`]} {ingredient}</li>)
-              }
-            </ul>
-          </div>
-          <div>
-            Instructions:
-            <div>{drink.strInstructions}</div>
-          </div>
-
-          <div>
-            <button onClick={saveDrink}>
-              Save this drink to your drink book!
-            </button>
-          </div>
-
-        </div>
+        <Drink drink={drink} saveDrink={saveDrink}/>
       }
+      <hr />
       <div>
         <input value={search} onChange={(e) => setSearch(e.target.value)}/>
         <button onClick={getCocktailByName}>
@@ -94,7 +63,7 @@ const Search = () => {
           <div>
             <ul>
               {
-                drinks.map((drink, i) => <li key={i} onClick={() => getCocktailByExactName(drink.strDrink)}>{drink.strDrink}</li>)
+                drinks.map((drink, i) => <li key={i}><a onClick={() => getCocktailByExactName(drink.strDrink)}>{drink.strDrink}</a></li>)
               }
             </ul>
           </div>

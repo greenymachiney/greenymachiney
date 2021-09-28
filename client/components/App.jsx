@@ -10,6 +10,7 @@ import axios from 'axios';
 
 import Login from './Login.jsx';
 import User from './User.jsx';
+import EventsCalendar from './EventsCalendar.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -22,9 +23,6 @@ class App extends Component {
 
 
 
-  getAllDrinks() {
-    axios.get()
-  }
 
   render() {
     return (

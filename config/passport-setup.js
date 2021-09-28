@@ -28,7 +28,7 @@ passport.use(
       .then(currentUser => {
         if (currentUser) {
           //user already exists
-          console.log('user is: ', currentUser);
+          //console.log('user is: ', currentUser);
           done(null, currentUser);
         } else {
           //user doesn't exist, create new user
