@@ -4,19 +4,19 @@ const drunkRouter = Router();
 const { getRandomCocktail, getCocktailByIngredient, getCocktailByName } = require('../api/getCocktail');
 const { User } = require('../database');
 
-// const authCheck = (req, res, next) => {
-//   if (!req.user) {
-//     //if user not logged in, redirect
-//     res.redirect('/');
-//   } else {
-//     next();
-//   }
-// }
+const authCheck = (req, res, next) => {
+  if (!req.user) {
+    //if user not logged in, redirect
+    res.redirect('/');
+  } else {
+    next();
+  }
+}
 
-// drunkRouter.get('/', authCheck, (req, res) => {
-//   //res.redirect('/'); //????
-//   res.send('logged in ' + req.user);
-// })
+drunkRouter.get('/', authCheck, (req, res) => {
+  res.redirect(`/${req.user.username}`);
+  //res.send('logged in ' + req.user);
+})
 
 drunkRouter.get('/randomCocktail', (req, res) => {
   getRandomCocktail()
@@ -56,29 +56,45 @@ drunkRouter.get('/cocktailByName/:name', (req, res) => {
     })
 });
 
-drunkRouter.post('/saveCocktail', (req, res) => {
+drunkRouter.put('/saveCocktail', (req, res) => {
   const { drink } = req.body;
-  User.updateOne({ username: req.user.username}, {
-    $push: {
-      drinks: drink
-    }
-  })
-    .then(response => {
-      console.log(response);
-      res.sendStatus(200);
+  const { username } = req.user;
+
+  User.findOne({ username })
+    .then(user => {
+      if (!user.drinks.includes(drink.strDrink)) {
+        User.updateOne({ username }, {
+          $push: {
+            drinks: drink.strDrink
+          }
+        })
+          .then(() => res.sendStatus(200));
+      } else {
+        res.sendStatus(200);
+      }
     })
     .catch(err => {
       console.error(err);
       res.sendStatus(404);
-    });
+    })
+})
 
+
+
+
+drunkRouter.get('/savedDrinks', (req, res) => {
+  User.findOne({ username: req.user.username})
+  .then((user) => {
+    //console.log('DATABASE RES',user)
+    res.send(user.savedDrinks)})
+  .catch(err => console.error(err))
 })
 
 
 drunkRouter.get('/liquorList', (req, res) => {
   User.findOne({ username: req.user.username})
   .then((user) => {
-    console.log('DATABASE RES',user)
+    //console.log('DATABASE RES',user)
     res.send(user.liquorList)})
   .catch(err => console.error(err))
 })
