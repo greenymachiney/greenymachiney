@@ -5,3 +5,24 @@
   color: white;
   font-size: 30px;
 }
+
+
+.list-group-item {
+  background: grey
+}
+
+.btn-buggy {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: flexbox;
+  float: left;
+  font-size: 18px;
+}
+
+.drinkCat {
+  text-decoration: underline;
+}
