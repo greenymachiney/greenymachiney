@@ -114,7 +114,7 @@ drunkRouter.put('/liquorList', (req, res) => {
 drunkRouter.get('/drinks', (req, res) => {
   User.findOne({ username: req.user.username})
   .then((user) => {
-    console.log('DATABASE RES',user)
+    //console.log('DATABASE RES',user)
     res.send(user.drinks)})
   .catch(err => console.error(err))
 })

@@ -43,21 +43,44 @@ const Search = () => {
 
   return (
     <div>
-      <div>
-        <button onClick={getRandomCocktail}>
+      {/* <div>
+        <input value={search} onChange={(e) => setSearch(e.target.value)}/>
+        <button className="btn btn-success btn-sm" onClick={getCocktailByName}>
+          Get Drinks By Name
+        </button>
+
+        <button className="btn btn-success random-cocktail-button" onClick={getRandomCocktail}>
           Get a Random Drink
         </button>
+
+      </div> */}
+
+      <div className='parent'>
+        <div className='child inline-block-child'>
+          <input value={search} placeholder="Search for a new drink" onChange={(e) => setSearch(e.target.value)}/>
+          <button className="btn btn-success btn-sm" onClick={getCocktailByName}>
+            Search
+          </button>
+        </div>
+        <div className='child inline-block-child random'>
+          <button className="btn btn-success random-cocktail-button" onClick={getRandomCocktail}>
+            Get a Random Drink
+          </button>
+        </div>
       </div>
+
+      <hr />
       {
         !drink.strDrink ? null :
         <Drink drink={drink} saveDrink={saveDrink}/>
       }
       <hr />
+
       <div>
-        <input value={search} onChange={(e) => setSearch(e.target.value)}/>
-        <button onClick={getCocktailByName}>
+        {/* <input value={search} onChange={(e) => setSearch(e.target.value)}/>
+        <button className="btn btn-success btn-sm" onClick={getCocktailByName}>
           Get Drinks By Name
-        </button>
+        </button> */}
         {
           !drinks ? null :
           <div>

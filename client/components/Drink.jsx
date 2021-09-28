@@ -35,9 +35,8 @@ const Drink = ({ drink, saveDrink }) => {
               Instructions:
               <div>{drink.strInstructions}</div>
             </div>
-
-            <div>
-              <button onClick={saveDrink}>
+            <div className="save-drink-button">
+              <button className="btn btn-success" onClick={saveDrink}>
                 Save this drink to your drink book!
               </button>
             </div>
