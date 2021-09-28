@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import { format, subHours, startOfMonth } from 'date-fns';
 import { MonthlyBody, MonthlyCalendar, MonthlyNav, DefaultMonthlyEventItem} from '@zach.codes/react-calendar';
-import 'react-big-calendar/dist/calendar-tailwind.css';
+//import 'react-big-calendar/dist/calendar-tailwind.css';
 
 
 

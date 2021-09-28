@@ -36,7 +36,7 @@ const Search = () => {
   }
 
   const saveDrink = () => {
-    axios.post('/drunk/saveCocktail', { drink: drink })
+    axios.put('/drunk/saveCocktail', { drink: drink })
       .then(() => console.log('saved!'))
       .catch(err => console.error(err));
   }
