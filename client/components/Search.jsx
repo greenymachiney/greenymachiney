@@ -11,8 +11,8 @@ const Search = () => {
   const getRandomCocktail = () => {
     axios.get('/drunk/randomCocktail')
       .then(({ data }) => {
-        console.log('RANDOM COCKTAIL: ', data[0]);
         setDrink(data[0]);
+        setDrinks([]);
       })
       .catch(err => console.error(err));
   }
@@ -20,8 +20,9 @@ const Search = () => {
   const getCocktailByName = () => {
     axios.get(`/drunk/cocktailByName/${search}`)
       .then(({ data }) => {
-        console.log('DRINKS BY NAME LIST: ', data);
         setDrinks(data);
+        setSearch('');
+        data.length === 1 ? setDrink(data[0]) : setDrink({});
       })
       .catch(err => console.error(err));
   }
@@ -29,7 +30,6 @@ const Search = () => {
   const getCocktailByExactName = (name) => {
     axios.get(`/drunk/cocktailByName/${name}`)
       .then(({ data }) => {
-        console.log('drink by exact name ', data[0]);
         setDrink(data[0]);
       })
       .catch(err => console.error(err));
@@ -43,27 +43,15 @@ const Search = () => {
 
   return (
     <div>
-      {/* <div>
-        <input value={search} onChange={(e) => setSearch(e.target.value)}/>
-        <button className="btn btn-success btn-sm" onClick={getCocktailByName}>
-          Get Drinks By Name
-        </button>
-
-        <button className="btn btn-success random-cocktail-button" onClick={getRandomCocktail}>
-          Get a Random Drink
-        </button>
-
-      </div> */}
-
       <div className='parent'>
-        <div className='child inline-block-child'>
-          <input value={search} placeholder="Search for a new drink" onChange={(e) => setSearch(e.target.value)}/>
-          <button className="btn btn-success btn-sm" onClick={getCocktailByName}>
+        <div className='child inline-block-child search'>
+          <input className='search-box' value={search} placeholder="Search for a new drink" onChange={(e) => setSearch(e.target.value)}/>
+          <button className="btn btn-success btn-sm search" onClick={getCocktailByName}>
             Search
           </button>
         </div>
-        <div className='child inline-block-child random'>
-          <button className="btn btn-success random-cocktail-button" onClick={getRandomCocktail}>
+        <div className='child inline-block-child'>
+          <button className="btn btn-success btn-sm" onClick={getRandomCocktail}>
             Get a Random Drink
           </button>
         </div>
@@ -77,18 +65,12 @@ const Search = () => {
       <hr />
 
       <div>
-        {/* <input value={search} onChange={(e) => setSearch(e.target.value)}/>
-        <button className="btn btn-success btn-sm" onClick={getCocktailByName}>
-          Get Drinks By Name
-        </button> */}
         {
           !drinks ? null :
-          <div>
-            <ul>
-              {
-                drinks.map((drink, i) => <li key={i}><a onClick={() => getCocktailByExactName(drink.strDrink)}>{drink.strDrink}</a></li>)
-              }
-            </ul>
+          <div className="list-group">
+            {
+              drinks.map((drink, i) => <button key={i} onClick={() => getCocktailByExactName(drink.strDrink)} type="button" className="list-group-item list-group-item-action">{drink.strDrink}</button>)
+            }
           </div>
         }
       </div>

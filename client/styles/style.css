@@ -38,6 +38,15 @@ header.masthead {
   display: inline-block;
 }
 
-.inline-block-child & random {
+.inline-block-child.search {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
+.search {
+  margin-left: 5px;
+}
+
+.footer {
+  background-color: #beda4a;
 }

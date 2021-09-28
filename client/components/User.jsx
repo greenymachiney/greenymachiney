@@ -56,6 +56,13 @@ const User = () => {
             <BarCart />
           </Route>
         </Switch>
+
+        <div className="footer fixed-bottom">
+          <div className="text-center p-3">
+            2021 <a className="text-dark" href="https://github.com/greenymachiney/greenymachiney">Greeny Machiney</a> - Emma Pejko, Amelia Neville, Jake Young, Luke Johnson
+          </div>
+        </div>
+
       </div>
   )
 }
