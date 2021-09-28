@@ -33,14 +33,6 @@ app.use(passport.session());
 app.use('/auth', authRouter);
 app.use('/drunk', drunkRouter)
 
-// app.get('/users/:username', (req, res) => {
-//   const { username } = req.params;
-//   console.log('USERNAME: ', username);
-//   res.clearCookie('user');
-//   res.cookie('username', username);
-//   res.redirect('/');
-// })
-
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(DIST_DIR, 'index.html'))
 })
