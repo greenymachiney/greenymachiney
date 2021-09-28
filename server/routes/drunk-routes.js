@@ -21,7 +21,6 @@ drunkRouter.get('/', authCheck, (req, res) => {
 drunkRouter.get('/randomCocktail', (req, res) => {
   getRandomCocktail()
     .then(response => {
-      //console.log(response.data.drinks);
       res.status(200).send(response.data.drinks);
     })
     .catch(err => {
@@ -33,10 +32,7 @@ drunkRouter.get('/randomCocktail', (req, res) => {
 drunkRouter.get('/cocktailByIngredient/:ingredient', (req , res) => {
   const { ingredient } = req.params;
   getCocktailByIngredient(ingredient)
-    .then(response => {
-      //console.log(response.data);
-      res.status(200).send(response.data.drinks);
-    })
+    .then(response => res.status(200).send(response.data.drinks))
     .catch(err => {
       console.error(err);
       res.sendStatus(404);
@@ -47,7 +43,9 @@ drunkRouter.get('/cocktailByName/:name', (req, res) => {
   const { name } = req.params;
   getCocktailByName(name)
     .then(response => {
-      //console.log(response.data.drinks, 'hello');
+
+
+
       res.status(200).send(response.data.drinks);
     })
     .catch(err => {
@@ -94,7 +92,6 @@ drunkRouter.get('/savedDrinks', (req, res) => {
 drunkRouter.get('/liquorList', (req, res) => {
   User.findOne({ username: req.user.username})
   .then((user) => {
-    //console.log('DATABASE RES',user)
     res.send(user.liquorList)})
   .catch(err => console.error(err))
 })
@@ -114,7 +111,7 @@ drunkRouter.put('/liquorList', (req, res) => {
 drunkRouter.get('/drinks', (req, res) => {
   User.findOne({ username: req.user.username})
   .then((user) => {
-    console.log('DATABASE RES',user)
+    //console.log('DATABASE RES',user)
     res.send(user.drinks)})
   .catch(err => console.error(err))
 })
