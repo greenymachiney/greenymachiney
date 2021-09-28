@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  HashRouter,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
-import axios from 'axios';
+
 
 import Login from './Login.jsx';
 import User from './User.jsx';
-import EventsCalendar from './EventsCalendar.jsx';
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -21,13 +17,9 @@ class App extends Component {
 
   }
 
-
-
-
   render() {
     return (
       <div>
-        <h1>Drink Dat</h1>
       <Router>
         <Switch>
           <Route exact path="/" component={Login}>

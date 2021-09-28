@@ -5,3 +5,48 @@
   color: white;
   font-size: 30px;
 }
+
+header.masthead {
+  background: url("../img/cocktail2.jpeg") no-repeat center center;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+.trueNav {
+  background-color: #beda4a;
+}
+
+.card-title {
+  color: #95ac38;
+}
+
+.save-drink-button {
+  padding-top: 10px;
+}
+
+.card-img-top {
+  height: 100%;
+}
+
+.inline-block-child {
+  display: inline-block;
+}
+
+.inline-block-child.search {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.search {
+  margin-left: 5px;
+}
+
+.footer {
+  background-color: #beda4a;
+}
