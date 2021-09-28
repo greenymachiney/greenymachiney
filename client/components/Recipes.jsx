@@ -5,7 +5,7 @@ class Recipes extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      savedDrinks: [],
+      drinks: [],
     };
     this.getSavedDrinks = this.getSavedDrinks.bind(this);
   }
@@ -13,24 +13,25 @@ class Recipes extends React.Component{
 
 
   getSavedDrinks() {
-    axios.get('/drunk/savedDrinks')
-      .then(({ data }) => this.setState({savedDrinks: data}))
+    axios.get('/drunk/drinks')
+      .then(({ data }) => console.log(data, 'my fav drink'))
       .catch(err => console.error(err));
   }
 
   componentDidMount(){
-    this.getSavedDrinks();
+    console.log(this.getSavedDrinks());
   }
 
 
 
   render() {
+    const { drinks } = this.state
   return (
     <div className="list-group">
       <h1 className='drinkBookHeader'>Drink Book</h1>
     {
     !this.getSavedDrinks.length ? null : getSavedDrinks().map((drink, i) => (
-      <div>{drink.StrDrink}</div>
+      <div>{drinks}</div>
 
     ))
     }
