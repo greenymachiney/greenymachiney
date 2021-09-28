@@ -74,8 +74,6 @@ drunkRouter.post('/saveCocktail', (req, res) => {
 
 })
 
-
-
 drunkRouter.get('/savedDrinks', (req, res) => {
   User.findOne({ username: req.user.username})
   .then((user) => {
