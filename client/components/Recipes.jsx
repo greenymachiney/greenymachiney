@@ -7,6 +7,7 @@ class Recipes extends React.Component{
       drinks: [],
     };
     this.getSavedDrinks = this.getSavedDrinks.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   getSavedDrinks() {
@@ -21,16 +22,21 @@ class Recipes extends React.Component{
       }))
   }
 
-  handleClick() {
-    console.log('hello')
-  }
-
-
-
-
   componentDidMount(){
     this.getSavedDrinks();
   }
+
+
+
+
+  handleClick(drink) {
+    axios.put('/drunk/drinks', {drinks: drink})
+    .then(() => this.setState({ drinks: []}))
+    .then(() => this.getSavedDrinks())
+  }
+
+
+
 
   render() {
     const { drinks } = this.state
@@ -39,7 +45,7 @@ class Recipes extends React.Component{
       <h1 className='drinkBookHeader'>Drink Book</h1>
     {
     drinks.map((drink, i) => (
-      <a href="#" className="list-group-item list-group-item-action" aria-current="true" key={i}>
+      <a href="#" className="list-group-item list-group-item-action" aria-current="true" key={i} drink={drink}>
       <div className="d-flex w-100 justify-content-between" key={i}>
         <h5 className="mb-1 hey" key={i}>{drink.strDrink}</h5>
         <img src={drink.strDrinkThumb} width="100" height="100"></img>
@@ -48,7 +54,7 @@ class Recipes extends React.Component{
       <small className="drinkCat">{drink.strCategory}</small>
       <br/>
       <br/>
-      <button className='btn-buggy' onClick={this.handleClick}>Delete</button>
+      <button className='btn-buggy' onClick={() => this.handleClick(drink.strDrink)}>Delete</button>
     </a>
     ))
     }
