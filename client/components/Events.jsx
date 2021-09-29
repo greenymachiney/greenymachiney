@@ -8,7 +8,9 @@ import { useForm } from "react-hook-form";
 const Events = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    axios.post()
+    axios.post('/event/addEvent', {
+      event: data
+    })
   };
 
   return (

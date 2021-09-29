@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const { User, Drink } = require('./database');
 const authRouter = require('./routes/auth-routes');
 const drunkRouter = require('./routes/drunk-routes');
+const eventRouter = require('./routes/event-routes');
 const passportSetup = require('../config/passport-setup');
 const keys = require('../config/keys');
 
@@ -32,6 +33,7 @@ app.use(passport.session());
 //routes
 app.use('/auth', authRouter);
 app.use('/drunk', drunkRouter)
+app.use('/event', eventRouter);
 
 // app.get('/users/:username', (req, res) => {
 //   const { username } = req.params;
