@@ -18,13 +18,15 @@ const Search = () => {
   }
 
   const getCocktailByName = () => {
-    axios.get(`/drunk/cocktailByName/${search}`)
-      .then(({ data }) => {
-        setDrinks(data);
-        setSearch('');
-        data.length === 1 ? setDrink(data[0]) : setDrink({});
-      })
-      .catch(err => console.error(err));
+    if (search) {
+      axios.get(`/drunk/cocktailByName/${search}`)
+        .then(({ data }) => {
+          setDrinks(data);
+          setSearch('');
+          data.length === 1 ? setDrink(data[0]) : setDrink({});
+        })
+        .catch(err => console.error(err));
+    }
   }
 
   const getCocktailByExactName = (name) => {
