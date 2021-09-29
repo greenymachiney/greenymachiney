@@ -32,12 +32,14 @@ const User = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{display: menu}}>
-          <div className="navbar-nav">
+          <div className="navbar-nav me-auto">
             <Link to={`${url}/barcart`} className="nav-item nav-link">Bar Cart</Link>
             <Link to={`${url}/recipes`} className="nav-item nav-link">Drink Book</Link>
             <Link to={`${url}/events`} className="nav-item nav-link">Events</Link>
             <Link to={`${url}/shoppinglist`} className="nav-item nav-link">Shopping List</Link>
             <Link to={`${url}/search`} className="nav-item nav-link">Search</Link>
+          </div>
+          <div className="navbar-nav">
             <a href='/auth/logout' className="nav-item nav-link log-out">Log Out</a>
           </div>
         </div>
