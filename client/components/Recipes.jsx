@@ -30,28 +30,9 @@ class Recipes extends React.Component{
 
 
   handleClick(drink) {
-    console.log(drink, 'eeeeeee')
-    const { drinks } = this.state
-    console.log(drinks, 'bevvys')
-    axios.get('/drunk/drinks')
-    .then(({ data }) => data.map(drank => {
-      console.log(drink, 'hiya')
-      console.log(drank, 'draaaank')
-      if (drank === drink.strDrink){
-      return axios.put('/drunk/drinks', { drinks: drank })
-      }
-    }))
-    // drinks.map(drank => {
-    //   console.log(drank, 'beverage')
-    //   if (drink.strDrink === drank.strDrink) {
-    //     return axios.put('/drunk/drinks', { drinks: drank.strDrink })
-    //   }
-    // })
-
-      // axios.put('/drunk/drinks', {drinks: drinks})
-      // .then(() => this.getSavedDrinks())
-
-    //axios.put('/drunk/drinks', {drinks: drink.strDrink})
+    axios.put('/drunk/drinks', {drinks: drink})
+    .then(() => this.setState({ drinks: []}))
+    .then(() => this.getSavedDrinks())
   }
 
 
@@ -73,7 +54,7 @@ class Recipes extends React.Component{
       <small className="drinkCat">{drink.strCategory}</small>
       <br/>
       <br/>
-      <button className='btn-buggy' onClick={() => this.handleClick(drink)}>Delete</button>
+      <button className='btn-buggy' onClick={() => this.handleClick(drink.strDrink)}>Delete</button>
     </a>
     ))
     }
