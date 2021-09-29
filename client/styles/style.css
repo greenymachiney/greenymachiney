@@ -1,7 +1,125 @@
 .drinkBookHeader {
   padding: 60px;
   text-align: center;
-  background: #0b7710;
+  background: #94ad24;
   color: white;
   font-size: 30px;
+}
+
+
+.list-group-item {
+
+  /* background: #dce474 */
+
+  background: #e1e2d2
+
+}
+
+.btn-buggy {
+  background-color: #52603d;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: flexbox;
+  float: left;
+  font-size: 18px;
+}
+
+.drinkCat {
+  text-decoration: underline;
+}
+
+header.masthead {
+  background: url("../img/cocktail2.jpeg") no-repeat center center;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+.trueNav {
+  background-color: #beda4a;
+}
+
+.card-title {
+  color: #95ac38;
+}
+
+.card-text h5 {
+  color: #beda4a;
+}
+
+.save-drink-button {
+  padding-top: 10px;
+}
+
+.card-img-top {
+  height: 100%;
+}
+
+.inline-block-child {
+  display: inline-block;
+}
+
+.inline-block-child.search {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.search {
+  margin-left: 5px;
+}
+
+body {
+  padding-bottom: 75px;
+}
+
+.footer {
+  background-color: #beda4a;
+}
+
+.shopping-header {
+  padding: 30px;
+  text-align: center;
+  background: #95ac38;
+  color: white;
+}
+
+.list-input {
+  margin-left: 20px;
+  margin-right: 5px;
+}
+
+.shopping-list-item:hover {
+  text-decoration: line-through;
+}
+
+.shopping-list {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.bi-trash {
+  display: flex;
+  float: right;
+}
+
+.add-ingredient-button {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.ingredient-item {
+  margin-bottom: 5px;
 }
