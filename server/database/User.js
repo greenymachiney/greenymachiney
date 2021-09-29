@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
   thumbnail: String,
   liquorList: [],
   drinks: [],
-  shoppinglist: [],
+  events: []
 });
 
 const User = mongoose.model('User', UserSchema);
