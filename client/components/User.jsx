@@ -36,8 +36,8 @@ const User = () => {
             <Link to={`${url}/barcart`} className="nav-item nav-link">Bar Cart</Link>
             <Link to={`${url}/recipes`} className="nav-item nav-link">Drink Book</Link>
             <Link to={`${url}/events`} className="nav-item nav-link">Events</Link>
-            <Link to={`${url}/search`} className="nav-item nav-link">Search</Link>
             <Link to={`${url}/shoppinglist`} className="nav-item nav-link">Shopping List</Link>
+            <Link to={`${url}/search`} className="nav-item nav-link">Search</Link>
             <a href='/auth/logout' className="nav-item nav-link log-out">Log Out</a>
           </div>
         </div>

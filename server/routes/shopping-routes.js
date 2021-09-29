@@ -37,5 +37,28 @@ shoppingRouter.post('/addItem', (req, res) => {
     })
 })
 
+shoppingRouter.put('/removeItem', (req, res) => {
+  const { item } = req.body;
+  const { username } = req.user;
+
+  User.findOne({ username })
+    .then(user => {
+      if (user.shoppinglist.includes(item)) {
+        User.updateOne({ username }, {
+          $pull: {
+            shoppinglist: item
+          }
+        })
+          .then(() => res.sendStatus(201));
+      } else {
+        res.sendStatus(201);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.sendStatus(404);
+    })
+})
+
 
 module.exports = shoppingRouter;

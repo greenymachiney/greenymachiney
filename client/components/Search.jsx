@@ -39,7 +39,6 @@ const Search = () => {
 
   const saveDrink = () => {
     axios.put('/drunk/saveCocktail', { drink: drink })
-      .then(() => console.log('saved!'))
       .catch(err => console.error(err));
   }
 
