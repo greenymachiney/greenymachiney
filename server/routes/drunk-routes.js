@@ -115,11 +115,15 @@ drunkRouter.get('/drinks', (req, res) => {
   .catch(err => console.error(err))
 })
 
-
-
 drunkRouter.put('/drinks', (req, res) => {
   User.findOne({ user: req.user})
   .then(user => user.drinks.includes(req.body.drinks) ? User.findOneAndUpdate({$pull: {drinks: req.body.drinks}})
+        .then(() => res.sendStatus(200))
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(404);
+        }) : res.sendStatus(404))
+});
 
 drunkRouter.put('/liquorList/delete', (req, res) => {
  console.log(req.body)
