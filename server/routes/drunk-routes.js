@@ -66,9 +66,9 @@ drunkRouter.put('/saveCocktail', (req, res) => {
             drinks: drink.strDrink
           }
         })
-          .then(() => res.sendStatus(200));
+          .then(() => res.sendStatus(201));
       } else {
-        res.sendStatus(200);
+        res.sendStatus(201);
       }
     })
     .catch(err => {

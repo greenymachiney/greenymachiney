@@ -13,6 +13,7 @@ import Recipes from './Recipes.jsx';
 import Search from './Search.jsx';
 import EventsCalendar from "./EventsCalendar.jsx";
 import Login from "./Login.jsx";
+import ShoppingList from "./ShoppingList.jsx";
 
 const User = () => {
   const { path, url } = useRouteMatch();
@@ -36,6 +37,7 @@ const User = () => {
             <Link to={`${url}/recipes`} className="nav-item nav-link">Drink Book</Link>
             <Link to={`${url}/events`} className="nav-item nav-link">Events</Link>
             <Link to={`${url}/search`} className="nav-item nav-link">Search</Link>
+            <Link to={`${url}/shoppinglist`} className="nav-item nav-link">Shopping List</Link>
             <a href='/auth/logout' className="nav-item nav-link log-out">Log Out</a>
           </div>
         </div>
@@ -57,6 +59,9 @@ const User = () => {
           </Route>
           <Route path={`${path}/events`}>
             <EventsCalendar />
+          </Route>
+          <Route path={`${path}/shoppinglist`}>
+            <ShoppingList />
           </Route>
           <Route path={`${path}`}>
             <BarCart />
