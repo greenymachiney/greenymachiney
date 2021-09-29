@@ -8,6 +8,8 @@ import {
 
 import Login from './Login.jsx';
 import User from './User.jsx';
+import Events from './Events.jsx';
+
 class App extends Component {
   constructor(props) {
     super(props);
