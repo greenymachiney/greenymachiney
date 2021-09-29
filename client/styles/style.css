@@ -9,7 +9,7 @@
 
 .list-group-item {
 
-  background: #dce474
+  /* background: #dce474 */
 
   background: #e1e2d2
 
@@ -49,6 +49,10 @@ header.masthead {
 
 .card-title {
   color: #95ac38;
+}
+
+.card-text h5 {
+  color: #beda4a;
 }
 
 .save-drink-button {
@@ -113,5 +117,9 @@ body {
 .add-ingredient-button {
   height: 30px;
   width: 30px;
-  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.ingredient-item {
+  margin-bottom: 5px;
 }
