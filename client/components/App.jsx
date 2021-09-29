@@ -10,7 +10,7 @@ import axios from 'axios';
 
 import Login from './Login.jsx';
 import User from './User.jsx';
-import EventsCalendar from './EventsCalendar.jsx';
+import Events from './Events.jsx';
 
 class App extends Component {
   constructor(props) {
