@@ -7,9 +7,12 @@
 }
 
 
-
 .list-group-item {
+
   background: #dce474
+
+  background: #e1e2d2
+
 }
 
 .btn-buggy {
@@ -69,7 +72,46 @@ header.masthead {
   margin-left: 5px;
 }
 
+body {
+  padding-bottom: 75px;
+}
+
 .footer {
   background-color: #beda4a;
+}
 
+.shopping-header {
+  padding: 30px;
+  text-align: center;
+  background: #95ac38;
+  color: white;
+}
+
+.list-input {
+  margin-left: 20px;
+  margin-right: 5px;
+}
+
+.shopping-list-item:hover {
+  text-decoration: line-through;
+}
+
+.shopping-list {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.bi-trash {
+  display: flex;
+  float: right;
+}
+
+.add-ingredient-button {
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   HashRouter,
@@ -13,23 +13,33 @@ import Recipes from './Recipes.jsx';
 import Search from './Search.jsx';
 import EventsCalendar from "./EventsCalendar.jsx";
 import Login from "./Login.jsx";
+import ShoppingList from "./ShoppingList.jsx";
 
 const User = () => {
   const { path, url } = useRouteMatch();
+
+  const [menu, setMenu] = useState('none');
+
+  const toggleMenu = () => {
+    setMenu(menu === 'none' ? 'block' : 'none');
+  }
 
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light trueNav">
         <a className="navbar-brand">DRINK DAT</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onClick={toggleMenu}>
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{display: menu}}>
+          <div className="navbar-nav me-auto">
             <Link to={`${url}/barcart`} className="nav-item nav-link">Bar Cart</Link>
             <Link to={`${url}/recipes`} className="nav-item nav-link">Drink Book</Link>
             <Link to={`${url}/events`} className="nav-item nav-link">Events</Link>
+            <Link to={`${url}/shoppinglist`} className="nav-item nav-link">Shopping List</Link>
             <Link to={`${url}/search`} className="nav-item nav-link">Search</Link>
+          </div>
+          <div className="navbar-nav">
             <a href='/auth/logout' className="nav-item nav-link log-out">Log Out</a>
           </div>
         </div>
@@ -51,6 +61,9 @@ const User = () => {
           </Route>
           <Route path={`${path}/events`}>
             <EventsCalendar />
+          </Route>
+          <Route path={`${path}/shoppinglist`}>
+            <ShoppingList />
           </Route>
           <Route path={`${path}`}>
             <BarCart />

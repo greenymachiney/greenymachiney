@@ -18,13 +18,15 @@ const Search = () => {
   }
 
   const getCocktailByName = () => {
-    axios.get(`/drunk/cocktailByName/${search}`)
-      .then(({ data }) => {
-        setDrinks(data);
-        setSearch('');
-        data.length === 1 ? setDrink(data[0]) : setDrink({});
-      })
-      .catch(err => console.error(err));
+    if (search) {
+      axios.get(`/drunk/cocktailByName/${search}`)
+        .then(({ data }) => {
+          setDrinks(data);
+          setSearch('');
+          data.length === 1 ? setDrink(data[0]) : setDrink({});
+        })
+        .catch(err => console.error(err));
+    }
   }
 
   const getCocktailByExactName = (name) => {
@@ -37,13 +39,12 @@ const Search = () => {
 
   const saveDrink = () => {
     axios.put('/drunk/saveCocktail', { drink: drink })
-      .then(() => console.log('saved!'))
       .catch(err => console.error(err));
   }
 
   return (
     <div>
-      <div className='parent'>
+      <div>
         <div className='child inline-block-child search'>
           <input className='search-box' value={search} placeholder="Search for a new drink" onChange={(e) => setSearch(e.target.value)}/>
           <button className="btn btn-success btn-sm search" onClick={getCocktailByName}>
@@ -69,7 +70,7 @@ const Search = () => {
           !drinks ? null :
           <div className="list-group">
             {
-              drinks.map((drink, i) => <button key={i} onClick={() => getCocktailByExactName(drink.strDrink)} type="button" className="list-group-item list-group-item-action">{drink.strDrink}</button>)
+              drinks.map((drink, i) => <button key={i} onClick={() => getCocktailByExactName(drink.strDrink)} type="button" className="list-group-item list-group-item-action" aria-current="true">{drink.strDrink}</button>)
             }
           </div>
         }

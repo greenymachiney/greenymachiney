@@ -32,7 +32,10 @@ drunkRouter.get('/randomCocktail', (req, res) => {
 drunkRouter.get('/cocktailByIngredient/:ingredient', (req , res) => {
   const { ingredient } = req.params;
   getCocktailByIngredient(ingredient)
-    .then(response => res.status(200).send(response.data.drinks))
+    .then(response => {
+      console.log(response.data)
+      return res.status(200).send(response.data.drinks);
+  })
     .catch(err => {
       console.error(err);
       res.sendStatus(404);
@@ -43,9 +46,6 @@ drunkRouter.get('/cocktailByName/:name', (req, res) => {
   const { name } = req.params;
   getCocktailByName(name)
     .then(response => {
-
-
-
       res.status(200).send(response.data.drinks);
     })
     .catch(err => {
@@ -66,9 +66,9 @@ drunkRouter.put('/saveCocktail', (req, res) => {
             drinks: drink.strDrink
           }
         })
-          .then(() => res.sendStatus(200));
+          .then(() => res.sendStatus(201));
       } else {
-        res.sendStatus(200);
+        res.sendStatus(201);
       }
     })
     .catch(err => {
@@ -78,20 +78,21 @@ drunkRouter.put('/saveCocktail', (req, res) => {
 })
 
 
-
-
 drunkRouter.get('/savedDrinks', (req, res) => {
   User.findOne({ username: req.user.username})
+
   .then((user) => {
     res.send(user.savedDrinks)})
+
+  .then(user => res.send(user.savedDrinks))
+
   .catch(err => console.error(err))
 })
 
 
 drunkRouter.get('/liquorList', (req, res) => {
   User.findOne({ username: req.user.username})
-  .then((user) => {
-    res.send(user.liquorList)})
+  .then(user => res.send(user.liquorList))
   .catch(err => console.error(err))
 })
 
@@ -115,18 +116,22 @@ drunkRouter.get('/drinks', (req, res) => {
 })
 
 
+
 drunkRouter.put('/drinks', (req, res) => {
   User.findOne({ user: req.user})
   .then(user => user.drinks.includes(req.body.drinks) ? User.findOneAndUpdate({$pull: {drinks: req.body.drinks}})
+
+drunkRouter.put('/liquorList/delete', (req, res) => {
+ console.log(req.body)
+  User.findOne({user: req.user})
+  .then(user => user.liquorList.includes(req.body.liquorList) ? User.findOneAndUpdate({$pull: {liquorList: req.body.liquorList}})
+
         .then(() => res.sendStatus(200))
         .catch((err) => {
           console.error(err);
           res.sendStatus(404);
         }) : res.sendStatus(404))
 });
-
-
-
 
 
 
