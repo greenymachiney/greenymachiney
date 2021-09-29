@@ -7,9 +7,8 @@
 }
 
 
-
 .list-group-item {
-  background: grey
+  background: #e1e2d2
 }
 
 .btn-buggy {
@@ -26,6 +25,7 @@
 
 .drinkCat {
   text-decoration: underline;
+}
 
 header.masthead {
   background: url("../img/cocktail2.jpeg") no-repeat center center;
@@ -68,7 +68,46 @@ header.masthead {
   margin-left: 5px;
 }
 
+body {
+  padding-bottom: 75px;
+}
+
 .footer {
   background-color: #beda4a;
+}
 
+.shopping-header {
+  padding: 30px;
+  text-align: center;
+  background: #95ac38;
+  color: white;
+}
+
+.list-input {
+  margin-left: 20px;
+  margin-right: 5px;
+}
+
+.shopping-list-item:hover {
+  text-decoration: line-through;
+}
+
+.shopping-list {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.bi-trash {
+  display: flex;
+  float: right;
+}
+
+.add-ingredient-button {
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
 }

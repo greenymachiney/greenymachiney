@@ -5,7 +5,8 @@ const UserSchema = new mongoose.Schema({
   googleId: String,
   thumbnail: String,
   liquorList: [],
-  drinks: []
+  drinks: [],
+  shoppinglist: [],
 });
 
 const User = mongoose.model('User', UserSchema);
