@@ -11,7 +11,7 @@ import {
 import BarCart from './BarCart.jsx';
 import Recipes from './Recipes.jsx';
 import Search from './Search.jsx';
-import EventsCalendar from "./EventsCalendar.jsx";
+import Events from "./Events.jsx";
 import Login from "./Login.jsx";
 import ShoppingList from "./ShoppingList.jsx";
 
@@ -60,7 +60,7 @@ const User = () => {
             <Search />
           </Route>
           <Route path={`${path}/events`}>
-            <EventsCalendar />
+            <Events />
           </Route>
           <Route path={`${path}/shoppinglist`}>
             <ShoppingList />
