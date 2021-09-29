@@ -29,23 +29,23 @@ const Drink = ({ drink, saveDrink }) => {
         <div className="col-md-8">
           <div className="card-body">
             <h2 className="card-title">{drink.strDrink}</h2>
-            <div className="card-text">
-              Ingredients:
-              <ul>
+            <div className="card-text" style={{marginBottom: '10px'}}>
+              <h5>Ingredients:</h5>
+              <div>
                 {
-                  getIngredients().map((ingredient, i) => <li key={i}>
-                    {drink[`strMeasure${i + 1}`]} {ingredient}
+                  getIngredients().map((ingredient, i) => <div key={i} className='ingredient-item'>
                     <button onClick={() => addToShoppingList(ingredient)} className="btn btn-success btn-sm add-ingredient-button" title="add to your shopping list!">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus" viewBox="2 2 16 16">
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                       </svg>
                     </button>
-                  </li>)
+                    {drink[`strMeasure${i + 1}`]} {ingredient}
+                  </div>)
                 }
-              </ul>
+              </div>
             </div>
             <div className="card-text">
-              Instructions:
+              <h5>Instructions:</h5>
               <div>{drink.strInstructions}</div>
             </div>
             <div className="save-drink-button">

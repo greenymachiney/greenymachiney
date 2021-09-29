@@ -80,7 +80,12 @@ drunkRouter.put('/saveCocktail', (req, res) => {
 
 drunkRouter.get('/savedDrinks', (req, res) => {
   User.findOne({ username: req.user.username})
+
+  .then((user) => {
+    res.send(user.savedDrinks)})
+
   .then(user => res.send(user.savedDrinks))
+
   .catch(err => console.error(err))
 })
 
@@ -106,16 +111,25 @@ drunkRouter.put('/liquorList', (req, res) => {
 drunkRouter.get('/drinks', (req, res) => {
   User.findOne({ username: req.user.username})
   .then((user) => {
-    //console.log('DATABASE RES',user)
     res.send(user.drinks)})
   .catch(err => console.error(err))
 })
 
+drunkRouter.put('/drinks', (req, res) => {
+  User.findOne({ user: req.user})
+  .then(user => user.drinks.includes(req.body.drinks) ? User.findOneAndUpdate({$pull: {drinks: req.body.drinks}})
+        .then(() => res.sendStatus(200))
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(404);
+        }) : res.sendStatus(404))
+});
 
 drunkRouter.put('/liquorList/delete', (req, res) => {
  console.log(req.body)
   User.findOne({user: req.user})
   .then(user => user.liquorList.includes(req.body.liquorList) ? User.findOneAndUpdate({$pull: {liquorList: req.body.liquorList}})
+
         .then(() => res.sendStatus(200))
         .catch((err) => {
           console.error(err);
