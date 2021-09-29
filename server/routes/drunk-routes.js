@@ -117,16 +117,40 @@ drunkRouter.get('/drinks', (req, res) => {
 })
 
 
-drunkRouter.put('/drinks', (req, res) => {
-  console.log(req.body, 'hiya')
-  console.log(req.params, 'hello')
+// drunkRouter.put('/drinks', (req, res) => {
+//   console.log(req.body, 'hiya')
+//   console.log(req.params, 'hello')
 
-  User.findOne({ user: req.user})
-  .then(user => user.drinks.includes(req.body.user.drinks) ? User.findOneAndUpdate({$pull: {drinks: req.body.user.drinks}})
-        .then(() => res.sendStatus(200))
-        .catch((err) => {
-          console.error(err);
-          res.sendStatus(404);
-        }) : res.sendStatus(404))
-});
+//   User.findOne({ user: req.user})
+//   .then(user => user.drinks.includes(req.body.user.drinks) ? User.findOneAndUpdate({$pull: {drinks: req.body.user.drinks}})
+//         .then(() => res.sendStatus(200))
+//         .catch((err) => {
+//           console.error(err);
+//           res.sendStatus(404);
+//         }) : res.sendStatus(404))
+// });
+
+
+drunkRouter.put('/drinks', (req, res) => {
+  const { drink } = req.body;
+  const { username } = req.user;
+  console.log(drink, 'beverage')
+  console.log({username}, 'heyyyyy')
+  User.findOne({ username })
+  .then(user => {
+    if (user.drinks.includes(drink)) {
+      User.updateOne({ username }, {$pull: {drinks: drink }})
+      .then(() => res.sendStatus(201));
+    } else {
+      res.sendStatus(201);
+    }
+  })
+  .catch(err => {
+    console.log(err);
+    res.sendStatus(404);
+  })
+})
+
+
+
 module.exports = drunkRouter;

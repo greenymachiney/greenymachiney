@@ -1,7 +1,7 @@
 .drinkBookHeader {
   padding: 60px;
   text-align: center;
-  background: #0b7710;
+  background: #94ad24;
   color: white;
   font-size: 30px;
 }
@@ -9,11 +9,11 @@
 
 
 .list-group-item {
-  background: grey
+  background: #dce474
 }
 
 .btn-buggy {
-  background-color: #4CAF50;
+  background-color: #52603d;
   border: none;
   color: white;
   padding: 15px 32px;
