@@ -75,3 +75,45 @@ body {
 .footer {
   background-color: #beda4a;
 }
+
+.shopping-header {
+  padding: 30px;
+  text-align: center;
+  background: #95ac38;
+}
+
+.list-input {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.shopping-list-item:before, .shopping-list-item:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  top: 50%;
+  margin-top: -0.5px;
+  background: black;
+}
+
+.shopping-list-item:before {
+  left: -2.5px;
+}
+.shopping-list-item:after {
+  right: 2.5px;
+  background: black;
+  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.shopping-list-item:hover:before {
+  background: black;
+  width: 100%;
+  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.shopping-list-item:hover:after {
+  background: transparent;
+  width: 100%;
+  transition: 0s;
+}

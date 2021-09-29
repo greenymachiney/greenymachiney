@@ -14,7 +14,7 @@ shoppingRouter.get('/', (req, res) => {
     })
 })
 
-shoppingRouter.put('/addItem', (req, res) => {
+shoppingRouter.post('/addItem', (req, res) => {
   const { item } = req.body;
   const { username } = req.user;
 
