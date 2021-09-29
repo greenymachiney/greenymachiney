@@ -14,25 +14,25 @@ const Events = () => {
   };
 
   return (
-    <div className="App">
+    <div className="Events">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label htmlFor="eventName">Event Name: </label>
+          <label className="eventName">Event Name: </label>
           <input placeholder="Event Name" {...register("Event Name")} />
         </div>
 
         <div>
-          <label htmlFor="eventTime">Event Time: </label>
+          <label className="eventTime">Event Time: </label>
           <input placeholder="Event Time" {...register("eventTime")} />
         </div>
 
         <div>
-          <label htmlFor="eventLocation">Event Location: </label>
+          <label className="eventLocation">Event Location: </label>
           <input placeholder="Event Location" {...register("eventLocation")} />
         </div>
 
         <div>
-          <label htmlFor="email">Send Out Invites: </label>
+          <label className="email">Send Out Invites: </label>
           <input
             placeholder="example@me.com"
             type="email"
