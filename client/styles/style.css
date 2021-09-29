@@ -51,6 +51,10 @@ header.masthead {
   color: #95ac38;
 }
 
+.card-text h5 {
+  color: #beda4a;
+}
+
 .save-drink-button {
   padding-top: 10px;
 }
@@ -113,5 +117,9 @@ body {
 .add-ingredient-button {
   height: 30px;
   width: 30px;
-  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.ingredient-item {
+  margin-bottom: 5px;
 }
