@@ -31,15 +31,6 @@ const Events = () => {
           <label className="eventLocation">Event Location: </label>
           <input placeholder="Event Location" {...register("eventLocation")} />
         </div>
-
-        <div>
-          <label className="email">Send Out Your Invites: </label>
-          <input
-            placeholder="example@me.com"
-            type="email"
-            {...register("email")}
-          />
-        </div>
         <input type="submit" />
       </form>
     </div>
