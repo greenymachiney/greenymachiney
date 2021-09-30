@@ -9,7 +9,6 @@ const authRouter = require('./routes/auth-routes');
 const drunkRouter = require('./routes/drunk-routes');
 const shoppingRouter = require('./routes/shopping-routes');
 const eventRouter = require('./routes/event-routes');
-const shoppingRouter = require('./routes/shopping-routes');
 const passportSetup = require('../config/passport-setup');
 const keys = require('../config/keys');
 
