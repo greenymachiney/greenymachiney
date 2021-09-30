@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import Store from "./Store.jsx";
+
 const ShoppingList = () => {
   const [items, setItems] = useState([]);
   const [add, setAdd] = useState('');
+  const [location, setLocation] = useState('');
+  const [stores, setStores] = useState([]);
+  const [store, setStore] = useState({});
 
   const getAllItems = () => {
     axios.get('/shopping')
@@ -26,6 +31,17 @@ const ShoppingList = () => {
     axios.put('/shopping/removeItem', { item: item })
       .then(() => {
         getAllItems();
+      })
+      .catch(err => console.error(err));
+  }
+
+  const findStores = () => {
+    axios.get(`/shopping/stores/${location.split(' ').join('')}`)
+      .then(({ data }) => {
+        console.log(data);
+        setStores(data);
+        setLocation('');
+        setStore({});
       })
       .catch(err => console.error(err));
   }
@@ -60,6 +76,30 @@ const ShoppingList = () => {
             //     <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
             //   </svg>
             // </button>)
+          }
+        </div>
+        <hr />
+        <div>
+          <div style={{paddingLeft: '20px'}}>Find liquor stores near you: </div>
+          <input className="list-input" value={location} placeholder="enter your location" onChange={(e) => setLocation(e.target.value)}/>
+          <button onClick={findStores} className="btn btn-success btn-sm" title="find stores">
+            Find Stores
+          </button>
+        </div>
+        <hr />
+        <div>
+          {
+            !store.name ? null :
+            <Store store={store} />
+          }
+        </div>
+        <hr/>
+        <div className='shopping-list'>
+          {
+            stores.map((store, i) => <button key={i} type="button"
+              className="list-group-item list-group-item-action" aria-current="true" onClick={() => setStore(store)}>
+                {store.name}
+            </button>)
           }
         </div>
       </div>
