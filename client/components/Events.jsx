@@ -14,7 +14,8 @@ const Events = () => {
   };
 
   return (
-    <div className="Events">
+    <div className="events">
+      <h5 className="event-header">Plan a Party!</h5>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label className="eventName">Event Name: </label>
@@ -32,7 +33,7 @@ const Events = () => {
         </div>
 
         <div>
-          <label className="email">Send Out Invites: </label>
+          <label className="email">Send Out Your Invites: </label>
           <input
             placeholder="example@me.com"
             type="email"

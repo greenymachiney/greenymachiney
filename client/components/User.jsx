@@ -59,14 +59,11 @@ const User = () => {
           <Route path={`${path}/search`}>
             <Search />
           </Route>
-          <Route path={`${path}/events`}>
-            <Events />
-          </Route>
           <Route path={`${path}/shoppinglist`}>
             <ShoppingList />
           </Route>
-          <Route path={`${path}`}>
-            <BarCart />
+          <Route path={`${path}/events`}>
+            <Events />
           </Route>
         </Switch>
 
