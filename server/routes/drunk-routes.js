@@ -91,6 +91,7 @@ drunkRouter.get('/savedDrinks', (req, res) => {
 
 
 drunkRouter.get('/liquorList', (req, res) => {
+  console.log(req.user.username)
   User.findOne({ username: req.user.username})
   .then(user => res.send(user.liquorList))
   .catch(err => console.error(err))
