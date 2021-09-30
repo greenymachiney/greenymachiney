@@ -50,7 +50,7 @@ shoppingRouter.put('/removeItem', (req, res) => {
             shoppinglist: item
           }
         })
-          .then(() => res.sendStatus(201));
+        .then(() => res.sendStatus(201));
       } else {
         res.sendStatus(201);
       }

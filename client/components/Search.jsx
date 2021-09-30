@@ -45,6 +45,10 @@ const Search = () => {
   return (
     <div>
       <div>
+        <h5 className="shopping-header">Search</h5>
+      </div>
+      <hr />
+      <div>
         <div className='child inline-block-child search'>
           <input className='search-box' value={search} placeholder="Search for a new drink" onChange={(e) => setSearch(e.target.value)}/>
           <button className="btn btn-success btn-sm search" onClick={getCocktailByName}>

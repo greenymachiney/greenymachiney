@@ -2,25 +2,26 @@ import React from "react";
 
 const Store = ({ store }) => {
 
+  const showInMapClicked = () => {
+    window.open(`https://maps.google.com?q=${store.coordinates.latitude},${store.coordinates.longitude}` );
+  };
 
   return (
     <div className="card mb-3">
       <div className="row no-gutters">
         <div className="col-md-4">
-          <img className="card-img-top" src={store.image_url}></img>
+          <img className="card-img-top store-image" src={store.image_url}></img>
         </div>
         <div className="col-md-8">
           <div className="card-body">
             <h2 className="card-title">{store.name}</h2>
             <div className="card-text" style={{marginBottom: '10px'}}>
-              {
-                store.location.display_address.join('\n')
-              }
+              <h5 className="store-address" onClick={showInMapClicked}>
+                {store.location.display_address[0]}<br />{store.location.display_address[1]}
+              </h5>
             </div>
             <div className="card-text">
-              {
-                store.display_phone
-              }
+              <p className="phone-number">{store.display_phone}</p>
             </div>
           </div>
         </div>
