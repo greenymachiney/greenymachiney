@@ -65,6 +65,9 @@ const User = () => {
           <Route path={`${path}/events`}>
             <Events />
           </Route>
+          <Route path={`${path}`}>
+            <BarCart />
+          </Route>
         </Switch>
 
         <div className="footer fixed-bottom">
