@@ -2,6 +2,7 @@ const { Router } = require('express');
 const shoppingRouter = Router();
 
 const { User } = require('../database');
+const { getBeerWineSpiritsStores } = require('../api/getStores');
 
 shoppingRouter.get('/', (req, res) => {
   const { username } = req.user;
@@ -53,6 +54,18 @@ shoppingRouter.put('/removeItem', (req, res) => {
       } else {
         res.sendStatus(201);
       }
+    })
+    .catch(err => {
+      console.error(err);
+      res.sendStatus(404);
+    })
+})
+
+shoppingRouter.get('/stores/:location', (req, res) => {
+  const { location } = req.params;
+  getBeerWineSpiritsStores(location)
+    .then(response => {
+      res.status(200).send(response);
     })
     .catch(err => {
       console.error(err);
