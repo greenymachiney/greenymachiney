@@ -32,11 +32,6 @@ deleteLiquor(liquor) {
    .then(() => this.getLiquorList())
 }
 
-// getSpecificLiquorRecipes(liquor) {
-//   axios.get(`/drunk/cocktailByIngredient/${liquor}`)
-  
-// }
-
 getLiquorList() {
   axios.get('/drunk/liquorList')
   .then(({data}) => this.setState({liquorList: data}))
