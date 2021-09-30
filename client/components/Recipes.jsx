@@ -42,7 +42,9 @@ class Recipes extends React.Component{
     const { drinks } = this.state
   return (
     <div className="list-group">
-      <h1 className='drinkBookHeader'>Drink Book</h1>
+      <div className='recipes-header h1'>
+      <h1>Drink Book</h1>
+      </div>
     {
     drinks.map((drink, i) => (
       <a href="#" className="list-group-item list-group-item-action" aria-current="true" key={i} drink={drink}>

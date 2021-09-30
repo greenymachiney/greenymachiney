@@ -15,7 +15,9 @@ const Events = () => {
 
   return (
     <div className="events">
-      <h5 className="event-header">Plan a Party!</h5>
+      <div className='events-header'>
+      <h1>Plan a Party!</h1>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label className="eventName">Event Name: </label>

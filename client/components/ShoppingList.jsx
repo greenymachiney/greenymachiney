@@ -51,8 +51,8 @@ const ShoppingList = () => {
 
   return (
     <div>
-      <div>
-        <h5 className="shopping-header">Shopping List</h5>
+      <div className='events-header'>
+      <h1>shopping list</h1>
       </div>
       <hr />
       <div>

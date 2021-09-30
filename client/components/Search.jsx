@@ -67,7 +67,7 @@ const Search = () => {
         !drink.strDrink ? null :
         <Drink drink={drink} saveDrink={saveDrink}/>
       }
-      <hr />
+      <hr/>
 
       <div>
         {
