@@ -93,14 +93,21 @@ componentDidMount() {
         <div>
         {
           !drink.strDrink ? null :
-          <div>
-            <div>Drink Name: {drink.strDrink}</div>
-            <div><img src={drink.strDrinkThumb} height='300px'></img></div>
+          <div className="card mb-3">
+          <div className="row no-gutters">
+            <div className="col-md-4">
+              <img className="card-img-top" src={drink.strDrinkThumb}></img>
+            </div>
+            <div className="col-md-8">
+              <div className="card-body">
+            <h2 className="card-title" >{drink.strDrink}</h2>
             <div>
-              Ingredients:
+              <h5>
+                Ingredients:
+              </h5>
               <div>
                 {
-                  this. getIngredients().map((ingredient, i) => <div key={i}>
+                  this.getIngredients().map((ingredient, i) => <div key={i} className='ingredient-item'>
                       <button onClick={() => addToShoppingList(ingredient)} className="btn btn-success btn-sm add-ingredient-button" title="add to your shopping list!">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus" viewBox="2 2 16 16">
                       <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -123,42 +130,46 @@ componentDidMount() {
                 </svg>
               </button>
             </div>
-
+              </div>
+              </div>
+              </div>
           </div>
         }
         </div>
-          <div>
-       <input type='text' name='liquor' value={this.state.liquor} onChange={(event) =>  this.setState({liquor: event.target.value})}/>
-       <div>{this.state.liquor}</div>
+          <div className='child inline-block-child search'>
+       <input type='text' name='liquor' className='search-box' value={this.state.liquor} onChange={(event) =>  this.setState({liquor: event.target.value})}/>
           <button className="btn btn-success btn-sm search" onClick={this.handleClick}>add liquor</button>
           </div>
-          <div>
-         {this.state.liquorList.map((liquor, index) => (
-             <div key={index}><button className="list-group-item list-group-item-action" onClick={() => this.getSpecificLiquorRecipes(liquor)} >{liquor}</button>
+          <div className="shopping-list">
+         {
+         this.state.liquorList.map((liquor, index) => (
+              <button key={index} className="list-group-item list-group-item-action" onClick={() => this.getSpecificLiquorRecipes(liquor)} >{liquor}
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16" onClick={() => this.deleteLiquor(liquor)}>
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                 <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
               </svg>
-             </div>
-         ))}
-
-
+              </button>
+         ))
+         }
         </div>
+        <hr></hr>
+        <div className="shopping-list">
         {
             !this.state.drinks.length ? null :
             <div className="list-group">
-              <ul>
+              <div>
                 {
                   this.state.drinks.map((drink, i) => (
-                    <li key={i}  onClick={() => {
+                    <div key={i}  onClick={() => {
                         const drinkObj = this.getCocktailByExactName(drink.strDrink)
                         this.setState({drink: {drinkObj}})
-                      }} type="button" className="list-group-item list-group-item-action" aria-current="true" >{drink.strDrink}</li>
+                      }} type="button" className="list-group-item list-group-item-action" aria-current="true" >{drink.strDrink}</div>
                   ))
                 }
-              </ul>
+              </div>
             </div>
           }
+          </div>
       </div>
   );
   }
