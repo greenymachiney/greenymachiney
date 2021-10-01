@@ -44,8 +44,8 @@ const Search = () => {
 
   return (
     <div>
-      <div>
-        <h5 className="shopping-header">Search</h5>
+      <div className="bar-cart-header h1">
+        <h1 >Search</h1>
       </div>
       <hr />
       <div>
