@@ -3,6 +3,7 @@ const express = require('express');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
 const { User, Drink } = require('./database');
 const authRouter = require('./routes/auth-routes');
@@ -19,6 +20,7 @@ const app = express();
 
 app.use(cookieParser());
 app.use(express.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(DIST_DIR));
 
