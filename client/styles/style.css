@@ -113,7 +113,7 @@ body {
 events styling
 */
 
-.events-header {
+.event-header {
   padding: 30px;
   text-align: center;
   background: #95AC38;
@@ -176,7 +176,6 @@ input[type=submit] {
   background-color: #95AC38;
   color: white;
   padding: 12px 20px;
-  margin-bottom: 14px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
