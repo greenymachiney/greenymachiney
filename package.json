@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server",
-    "dev": "rimraf dist && webpack",
-    "build": "webpack --mode production"
+    "dev": "rimraf dist && webpack"
   },
   "repository": {
     "type": "git",

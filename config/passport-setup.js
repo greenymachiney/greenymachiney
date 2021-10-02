@@ -28,7 +28,6 @@ passport.use(
       .then(currentUser => {
         if (currentUser) {
           //user already exists
-          //console.log('user is: ', currentUser);
           done(null, currentUser);
         } else {
           //user doesn't exist, create new user
@@ -38,7 +37,6 @@ passport.use(
             thumbnail: profile.photos[0].value
           })
           .then(newUser => {
-            console.log('new user created: ', newUser);
             done(null, newUser);
           })
         }

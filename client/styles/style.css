@@ -29,6 +29,7 @@ body {
   text-shadow: 1px 1px 0px #45a049;
   background:  #e1e2d2;
 }
+
 .events-header h1:before, .events-header h1:after {
     background-color: #c50000;
     position:absolute; 
@@ -62,6 +63,7 @@ body {
   text-shadow: 1px 1px 0px #45a049;
   background:  #e1e2d2;
 }
+
 .recipes-header h1:before, .recipes-header h1:after {
     background-color: #c50000;
     position:absolute; 
@@ -95,6 +97,7 @@ body {
   text-shadow: 1px 1px 0px #45a049;
   background: #e1e2d2;
 }
+
 .bar-cart-header h1:before, .bar-cart-header h1:after {
     background-color: #c50000;
     position:absolute; 
@@ -115,10 +118,9 @@ events styling
 */
 
 .events-header {
-  padding: 30px;
   text-align: center;
   background: #95AC38;
-  color: white;
+  color: black;
   font-size: 30px;
 }
 
@@ -134,12 +136,6 @@ label {
   padding: 12px 12px 12px 0;
   display: inline-block;
 }
-
-/* .container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-} */
 
 .col-25 {
   float: left;
