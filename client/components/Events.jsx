@@ -85,7 +85,7 @@ const Events = () => {
             <div className="col-sm-6">
               <div className="card">
                 <h5 className="card-title">Event </h5> 
-                <div className="card-text">
+                <div className="event-card-text">
                   <li>
                   {event.eventName} 
                     </li>
