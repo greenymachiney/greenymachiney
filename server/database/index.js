@@ -9,6 +9,5 @@ const db = mongoose.connect(mongoUri, {
 
 module.exports = {
   db,
-  Drink: require('./Drink.js'),
   User: require('./User.js'),
 };

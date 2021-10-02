@@ -21,7 +21,6 @@ eventRouter.get('/invites', (req, res) => {
     $ne: username
   }})
   .then(users => {
-    console.log(users);
     if(users) {
       res.status(200).send(users);
     } else {
@@ -55,9 +54,6 @@ eventRouter.post('/addEvent', (req, res) => {
 eventRouter.post('/addFriend', (req, res) => {
   const { friend, event } = req.body.data;
   const { username } = req.user
-  console.log(req.body);
-  console.log('FRIEND: ', friend);
-  console.log('EVENT: ', event);
 
   const getEventObj = (arrOfEvents) => {
     for (let i = 0; i < arrOfEvents.length; i++) {
@@ -67,7 +63,6 @@ eventRouter.post('/addFriend', (req, res) => {
         }
       }
     }
-    console.log('updated events arr: ', arrOfEvents);
     return arrOfEvents; //return whole arr
   }
   

@@ -54,7 +54,7 @@ const ShoppingList = () => {
       <div className='events-header'>
       <h1>shopping list</h1>
       </div>
-      <hr />
+
       <div>
         <div>
           <input className="list-input" value={add} placeholder="add an item to your list" onChange={(e) => setAdd(e.target.value)}/>

@@ -47,7 +47,7 @@ const Search = () => {
       <div className="bar-cart-header h1">
         <h1 >Search</h1>
       </div>
-      <hr />
+
       <div>
         <div className='child inline-block-child search'>
           <input className='search-box' value={search} placeholder="Search for a new drink" onChange={(e) => setSearch(e.target.value)}/>

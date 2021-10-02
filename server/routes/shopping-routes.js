@@ -4,6 +4,7 @@ const shoppingRouter = Router();
 const { User } = require('../database');
 const { getBeerWineSpiritsStores } = require('../api/getStores');
 
+//gets users shopping list from the database
 shoppingRouter.get('/', (req, res) => {
   const { username } = req.user;
 
@@ -15,6 +16,7 @@ shoppingRouter.get('/', (req, res) => {
     })
 })
 
+//adds an item to a users shopping list
 shoppingRouter.post('/addItem', (req, res) => {
   const { item } = req.body;
   const { username } = req.user;
@@ -38,6 +40,7 @@ shoppingRouter.post('/addItem', (req, res) => {
     })
 })
 
+//deletes an item from a users shopping list
 shoppingRouter.put('/removeItem', (req, res) => {
   const { item } = req.body;
   const { username } = req.user;
@@ -61,6 +64,7 @@ shoppingRouter.put('/removeItem', (req, res) => {
     })
 })
 
+//sends location to yelp api and responds with a list of stores
 shoppingRouter.get('/stores/:location', (req, res) => {
   const { location } = req.params;
   getBeerWineSpiritsStores(location)
@@ -72,6 +76,5 @@ shoppingRouter.get('/stores/:location', (req, res) => {
       res.sendStatus(404);
     })
 })
-
 
 module.exports = shoppingRouter;
