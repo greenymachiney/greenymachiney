@@ -88,7 +88,7 @@ const Events = () => {
                 <h5 className="card-title">Event </h5> 
                 <div className="card-text">
                   <ul>
-                  {event.eventName} 
+                  {event.eventName}
                     </ul>
                     <ul>
                     {event.eventTime}
