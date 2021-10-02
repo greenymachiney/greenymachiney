@@ -86,29 +86,32 @@ const Events = () => {
               <div className="card">
                 <h5 className="card-title">Event </h5> 
                 <div className="card-text">
-                  <ul>
+                  <li>
                   {event.eventName} 
-                    </ul>
-                    <ul>
+                    </li>
+                    <li>
                     {event.eventTime}
-                    </ul>
-                    <ul>
+                    </li>
+                    <li>
                     {event.eventLocation}
-                    </ul>
-                    <ul>People coming: {event.friends.map((friend, i) => <li key={i}>{friend}</li>)}</ul>
+                    </li>
+                    <br />
+                    <h5 className="card-title">Invited </h5> 
+                    <ul>{event.friends.map((friend, i) => <li key={i}>{friend}</li>)}</ul>
                 </div>
               </div> 
             </div>
             <div className="col-sm-6">
               <div className="card">
-                <h5 className="card-title">Friends </h5> 
+                <h5 className="card-title">Your Friends </h5> 
                 <div className="card-body">
                     {
                       friends.map((friend, i) => 
                         <button key={i} onClick={() => inviteFriend(friend.username, event.eventName)}>
-                          {friend.username} 
-                        </button>)
+                          {friend.username} <br />
+                        </button>) 
                     }
+                    <br />
                 </div>
               </div>
             </div>
