@@ -28,7 +28,6 @@ const Events = () => {
   const getEvents = () => {
     axios.get('/event')
       .then(({ data}) => {
-        //console.log(data);
         setEvents(data);
       })
       .catch(err => console.error(err));

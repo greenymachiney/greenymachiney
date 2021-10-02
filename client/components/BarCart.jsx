@@ -28,7 +28,7 @@ handleClick() {
 }
 
 deleteLiquor(liquor) {
-  console.log(liquor)
+ 
   axios.put('/drunk/liquorList/delete', {liquorList: liquor})
    .then(() => this.getLiquorList())
 }
@@ -57,7 +57,7 @@ getCocktailByExactName(name) {
 
 getIngredients() {
   const ingredients = [];
-  console.log('DRINK STATE IN GET ING', this.state.drink);
+
   let count = 1;
   while (this.state.drink[`strIngredient${count}`]) {
     ingredients.push(this.state.drink[`strIngredient${count}`]);
