@@ -44,24 +44,24 @@ We use bootstrap for our styling with additional styling in client/styles/style.
 ### start up
 in /config, make a file named keys.js. The file needs the following information, with the information with the << >> tags filled in. 
 
-`module.exports = {
-  google: {
-    clientID: << YOUR_GOOGLE_CLIENT_ID >> ,
-    clientSecret: << YOUR_GOOGLE_CLIENT_SECRET >>
-  },
-  session: {
-    cookieKey: << A_SESSION_KEY (can be any string, it is used to encrpyt a users id into a session id) >>
-  },
-  api: {
-    cocktail: << THE_COCKTAIL_API_KEY (you can use the API without a key, but there are more queries available if you pay and make a key )>>
-  },
-  yelp: {
-    clientID: << YOUR_YELP_FUSION_CLIENT_ID >>,
-    APIkey: << YOUR_YELP_FUSION_API_KEY >>
-  }
+`module.exports = {<br>
+  google: {<br>
+    clientID: << YOUR_GOOGLE_CLIENT_ID >>,<br>
+    clientSecret: << YOUR_GOOGLE_CLIENT_SECRET >><br>
+  },<br>
+  session: {<br>
+    cookieKey: << A_SESSION_KEY (can be any string, it is used to encrpyt a users id into a session id) >><br>
+  },<br>
+  api: {<br>
+    cocktail: << THE_COCKTAIL_API_KEY (you can use the API without a key, but there are more queries available if you pay and make a key )>><br>
+  },<br>
+  yelp: {<br>
+    clientID: << YOUR_YELP_FUSION_CLIENT_ID >>,<br>
+    APIkey: << YOUR_YELP_FUSION_API_KEY >><br>
+  }<br>
 };`
 
 #### start up scripts
 
-`npm run dev` to run webpack
-`npm start` to start the server on port 3000
+`npm run dev` to run webpack<br>
+`npm start` to start the server on port 3000<br>
