@@ -42,7 +42,7 @@ We use bootstrap for our styling with additional styling in client/styles/style.
 
 
 ### start up
-in /config, make a file named keys.js. The file needs the following information, with the information with the << >> tags filled in. 
+in /config folder, make a file named `keys.js`. The file needs the following information, with the information with the << >> tags filled in. 
 
 `module.exports = {
   google: {
