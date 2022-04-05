@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const key = require('../../config/keys'); //.api.cocktail; // commented out .api.cocktails since we haven't gotten an api key yet.
+const key = require('../../config/keys').api.cocktail; // commented out .api.cocktails since we haven't gotten an api key yet.
 
 
 const getRandomCocktail = () => {
