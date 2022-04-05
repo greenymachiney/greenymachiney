@@ -1,5 +1,5 @@
 const axios = require('axios');
-const key = require('../../config/keys').api.cocktail;
+const key = require('../../config/keys') //.api.cocktail;
 
 const getRandomCocktail = () => {
   return axios.get(`http://thecocktaildb.com/api/json/v2/${key}/random.php`)
