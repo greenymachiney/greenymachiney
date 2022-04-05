@@ -1,11 +1,11 @@
-const axios = require("axios");
-const key = require("../../config/keys"); //.api.cocktail;
+const axios = require('axios');
+const key = require('../../config/keys'); //.api.cocktail; // commented out .api.cocktails since we haven't gotten an api key yet.
 
 const getRandomCocktail = () => {
   return axios
     .get(`http://thecocktaildb.com/api/json/v2/${key}/random.php`)
     .then((response) => response)
-    .catch((err) => console.error("error in cocktail api call: ", err));
+    .catch((err) => console.error('error in cocktail api call: ', err));
 };
 
 const getCocktailByIngredient = (ingredient) => {

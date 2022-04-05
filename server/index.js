@@ -36,13 +36,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //routes
-app.use("/auth", authRouter);
-app.use("/shopping", shoppingRouter);
-app.use("/drunk", drunkRouter);
-app.use("/event", eventRouter);
+app.use('/auth', authRouter);
+app.use('/shopping', shoppingRouter);
+app.use('/drunk', drunkRouter);
+app.use('/event', eventRouter);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(DIST_DIR, "index.html"));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(DIST_DIR, 'index.html'));
 });
 
 app.listen(PORT, () => {

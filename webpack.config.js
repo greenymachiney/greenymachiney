@@ -1,7 +1,8 @@
-const path = require("path");
-const SRC_DIR = path.resolve(__dirname, "client");
-const DIST_DIR = path.resolve(__dirname, "dist");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const SRC_DIR = path.resolve(__dirname, 'client');
+const DIST_DIR = path.resolve(__dirname, 'dist');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 
 module.exports = {
   mode: "development",
@@ -36,10 +37,14 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(SRC_DIR, 'index.html'),
+      inject: 'body',
+    }),
+    new NodePolyfillPlugin(),
+  ],
   devServer: {
     historyApiFallback: true,
   },
-  plugins: [
-    new HtmlWebpackPlugin({ template: path.resolve(SRC_DIR, "index.html") }),
-  ],
 };
