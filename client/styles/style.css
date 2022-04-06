@@ -2,7 +2,134 @@ body {
   background-color: #94ad24;
 }
 
+/* /////////////////////////////////// FIVE GUYS CSS ///////////////////////////////////*/
 
+/* Floating action button CSS */
+.fab-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.fab-icon-holder {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #016fb9;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fab-icon-holder:hover {
+  opacity: 0.8;
+}
+
+.fab-icon-holder i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  font-size: 25px;
+  color: #ffffff;
+}
+
+.fab {
+  width: 56px;
+  height: 56px;
+  background: #f83f18;
+}
+
+.fab-options {
+  list-style-type: none;
+  margin: 0;
+
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+
+  opacity: 0;
+
+  transition: all 0.3s ease;
+  transform: scale(0);
+  transform-origin: 85% bottom;
+}
+
+.fab:hover + .fab-options,
+.fab-options:hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fab-options li {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+.fab-label {
+  padding: 2px 5px;
+  align-self: center;
+  user-select: none;
+  white-space: nowrap;
+  border-radius: 3px;
+  font-size: 16px;
+  background: #666666;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+}
+/* ////////////////////////////////////////// MAP CSS ////////////////////////////////////////////// */
+.map-h2 {
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 20px;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.google-map {
+  width: 100%;
+  height: 60vh;
+}
+
+.pin {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  color: var(--main-blue);
+}
+
+.pin-icon {
+  font-size: 4rem;
+}
+
+.pin-text {
+  font-size: 1.3em;
+}
+
+@media screen and (min-width: 799px) {
+  .google-map {
+    height: 80vh;
+  }
+
+  .map-h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+
+  .pin {
+    width: 15vw;
+  }
+
+  .pin-icon {
+    font-size: 10vw;
+  }
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////// */
 
 .drinkBookHeader {
   padding: 30px;
@@ -12,106 +139,109 @@ body {
   font-size: 30px;
 }
 
-
 .events-header h1 {
-  position:relative; 
-  font-size:30px; 
-  font-weight:700;  
-  letter-spacing:0px; 
-  text-transform:uppercase; 
-  width: 250px; 
-  text-align:center; 
-  margin:auto; 
-  white-space:nowrap; 
-  border:2px solid #222;
+  position: relative;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  width: 250px;
+  text-align: center;
+  margin: auto;
+  white-space: nowrap;
+  border: 2px solid #222;
   border-radius: 3px;
-  padding:5px 11px 3px 11px;
-  text-shadow: 1px 1px 0px #45a049;
-  background:  #e1e2d2;
-}
-
-.events-header h1:before, .events-header h1:after {
-    background-color: #c50000;
-    position:absolute; 
-    content: '';
-    height: 7px;
-
-    width: 7px; border-radius:50%;
-    bottom: 20px;
-}
-.events-header h1:before {
-   left:-20px;
-}
-.events-header h1:after {
-   right:-20px;
-}
-
-
-.recipes-header h1 {
-  position:relative; 
-  font-size:30px; 
-  font-weight:700;  
-  letter-spacing:0px; 
-  text-transform:uppercase; 
-  width: 210px; 
-  text-align:center; 
-  margin:auto; 
-  white-space:nowrap; 
-  border:2px solid #222;
-  border-radius: 3px;
-  padding:5px 11px 3px 11px;
-  text-shadow: 1px 1px 0px #45a049;
-  background:  #e1e2d2;
-}
-
-.recipes-header h1:before, .recipes-header h1:after {
-    background-color: #c50000;
-    position:absolute; 
-    content: '';
-    height: 7px;
-
-    width: 7px; border-radius:50%;
-    bottom: 20px;
-}
-.recipes-header h1:before {
-   left:-20px;
-}
-.recipes-header h1:after {
-   right:-20px;
-}
-
-
-.bar-cart-header h1 {
-  position:relative; 
-  font-size:30px; 
-  font-weight:700;  
-  letter-spacing:0px; 
-  text-transform:uppercase; 
-  width:175px; 
-  text-align:center; 
-  margin:auto; 
-  white-space:nowrap; 
-  border:2px solid #222;
-  border-radius: 3px;
-  padding:5px 11px 3px 11px;
+  padding: 5px 11px 3px 11px;
   text-shadow: 1px 1px 0px #45a049;
   background: #e1e2d2;
 }
 
-.bar-cart-header h1:before, .bar-cart-header h1:after {
-    background-color: #c50000;
-    position:absolute; 
-    content: '';
-    height: 7px;
+.events-header h1:before,
+.events-header h1:after {
+  background-color: #c50000;
+  position: absolute;
+  content: '';
+  height: 7px;
 
-    width: 7px; border-radius:50%;
-    bottom: 20px;
+  width: 7px;
+  border-radius: 50%;
+  bottom: 20px;
+}
+.events-header h1:before {
+  left: -20px;
+}
+.events-header h1:after {
+  right: -20px;
+}
+
+.recipes-header h1 {
+  position: relative;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  width: 210px;
+  text-align: center;
+  margin: auto;
+  white-space: nowrap;
+  border: 2px solid #222;
+  border-radius: 3px;
+  padding: 5px 11px 3px 11px;
+  text-shadow: 1px 1px 0px #45a049;
+  background: #e1e2d2;
+}
+
+.recipes-header h1:before,
+.recipes-header h1:after {
+  background-color: #c50000;
+  position: absolute;
+  content: '';
+  height: 7px;
+
+  width: 7px;
+  border-radius: 50%;
+  bottom: 20px;
+}
+.recipes-header h1:before {
+  left: -20px;
+}
+.recipes-header h1:after {
+  right: -20px;
+}
+
+.bar-cart-header h1 {
+  position: relative;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  width: 175px;
+  text-align: center;
+  margin: auto;
+  white-space: nowrap;
+  border: 2px solid #222;
+  border-radius: 3px;
+  padding: 5px 11px 3px 11px;
+  text-shadow: 1px 1px 0px #45a049;
+  background: #e1e2d2;
+}
+
+.bar-cart-header h1:before,
+.bar-cart-header h1:after {
+  background-color: #c50000;
+  position: absolute;
+  content: '';
+  height: 7px;
+
+  width: 7px;
+  border-radius: 50%;
+  bottom: 20px;
 }
 .bar-cart-header h1:before {
-   left:-20px;
+  left: -20px;
 }
 .bar-cart-header h1:after {
-   right:-20px;
+  right: -20px;
 }
 /** 
 events styling
@@ -119,12 +249,14 @@ events styling
 
 .events-header {
   text-align: center;
-  background: #95AC38;
+  background: #95ac38;
   color: black;
   font-size: 30px;
 }
 
-input[type=text], select, textarea {
+input[type='text'],
+select,
+textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -151,29 +283,27 @@ label {
 
 /* Clear floats after the columns */
 .row:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
 
-
-
-
-input[type=text], select, textarea {
-  
+input[type='text'],
+select,
+textarea {
   width: 100%; /* Full width */
-  padding: 12px; /* Some padding */ 
+  padding: 12px; /* Some padding */
   border: 1px solid #ccc; /* Gray border */
   border-radius: 4px; /* Rounded borders */
   box-sizing: border-box; /* Make sure that padding and width stays in place */
   margin-top: 6px; /* Add a top margin */
   margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
 /* Style the submit button with a specific background color etc */
-input[type=submit] {
-  background-color: #95AC38;
+input[type='submit'] {
+  background-color: #95ac38;
   color: white;
   padding: 12px 20px;
   margin-bottom: 14px;
@@ -182,11 +312,9 @@ input[type=submit] {
   cursor: pointer;
 }
 
-
-
 /* When moving the mouse over the submit button, add a darker green color */
-input[type=submit]:hover {
-  background-color: #BEDA4A;
+input[type='submit']:hover {
+  background-color: #beda4a;
 }
 /** 
 end of events styling
@@ -204,10 +332,9 @@ end of events styling
 }
 
 .list-group-item:last-child {
-  border-top-right-radius: 5px; 
+  border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
-
 
 .btn-buggy {
   background-color: #52603d;
@@ -226,7 +353,7 @@ end of events styling
 }
 
 header.masthead {
-  background: url("../img/cocktail2.jpeg") no-repeat center center;
+  background: url('../img/cocktail2.jpeg') no-repeat center center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
