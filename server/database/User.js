@@ -8,7 +8,6 @@ const UserSchema = new mongoose.Schema({
   drinks: [],
   shoppinglist: [],
   events: [],
-  recipes: [],
 });
 
 const User = mongoose.model("User", UserSchema);
