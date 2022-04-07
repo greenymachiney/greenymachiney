@@ -4,7 +4,7 @@ const key = require('../../config/keys').api.weather;
 const getCurrentWeather = (lat, lon) => {
   return axios
     .get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`)
-    .then((response) => response)
+    .then((response) => response.data)
     .catch((err) => console.error('error in weather api call: ', err));
 };
 
