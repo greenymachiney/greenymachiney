@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  Switch,
-  Route,
-  Link,
-  useRouteMatch
-} from "react-router-dom";
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
 import BarCart from './BarCart.jsx';
 import Recipes from './Recipes.jsx';

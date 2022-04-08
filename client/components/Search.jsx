@@ -74,6 +74,7 @@ const Search = () => {
           !drinks ? null :
           <div className="list-group">
             {
+              
               drinks.map((drink, i) => <button key={i} onClick={() => getCocktailByExactName(drink.strDrink)} type="button" className="list-group-item list-group-item-action" aria-current="true">{drink.strDrink}</button>)
             }
           </div>
