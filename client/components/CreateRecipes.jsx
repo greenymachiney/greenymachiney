@@ -35,6 +35,21 @@ const CreateRecipes = () => {
       .catch((err) => console.error(err));
   };
 
+  //CLOUDINARY USER PHOTO UPLOAD SETUP
+  //   <CloudinaryContext cloudName="ddg1jsejq">
+  //   <div>
+  //     <Image publicId="sample" width="50" />
+  //   </div>
+  //   <Image publicId="sample" width="0.5" />
+  // </CloudinaryContext>
+  const upLoadPresetName = "Crwlr-FIVE-Guys";
+  const cloudName = "ddg1jsejq";
+
+  const cloudinaryAPI_KEY = "836695157638662";
+  
+  const cloudinary_URL =
+    "https://api.cloudinary.com/v1_1/ddpdhbrkj/image/upload";
+
   const { recipeName, ingredients, instructions, category } = recipe;
   return (
     <div>
@@ -75,3 +90,36 @@ const CreateRecipes = () => {
 };
 
 export default CreateRecipes;
+
+/**
+ *   document.addEventListener("DOMContentLoaded", async () => {
+    const response = await fetch("/api/signuploadwidget");
+    const data = await response.json();
+
+    const options = {
+      cloudName: data.cloudname,
+      apiKey: data.apikey,
+      uploadSignatureTimestamp: data.timestamp,
+      uploadSignature: data.signature,
+      cropping: false,
+      folder: "signed_upload_demo_uw",
+    };
+
+    const processResults = (error, result) => {
+      if (!error && result && result.event === "success") {
+        console.log(result);
+
+        var str = JSON.stringify(result, null, 4);
+        document.getElementById("uwdata").innerHTML += str;
+      }
+    };
+
+    const myWidget = window.cloudinary.createUploadWidget(
+      options,
+      processResults
+    );
+    document
+      .getElementById("upload_widget")
+      .addEventListener("click", () => myWidget.open(), false);
+  });
+ */
