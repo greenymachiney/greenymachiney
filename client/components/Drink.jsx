@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import VideoPlayer from "./VideoPlayer.jsx";
 
 const Drink = ({ drink, saveDrink }) => {
 
@@ -55,6 +56,8 @@ const Drink = ({ drink, saveDrink }) => {
                 </svg>
               </button>
             </div>
+            <hr></hr>
+            <VideoPlayer drink={drink} />
           </div>
         </div>
       </div>

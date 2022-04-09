@@ -1,6 +1,7 @@
 const path = require('path');
 const SRC_DIR = path.resolve(__dirname, 'client');
 const DIST_DIR = path.resolve(__dirname, 'dist');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 

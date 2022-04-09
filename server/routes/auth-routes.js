@@ -5,7 +5,9 @@ const passport = require('passport');
 //auth login with google
 authRouter.get('/google', passport.authenticate('google', {
   scope: ['profile']
-}));
+})
+
+);
 
 //callback redirect for google
 authRouter.get('/google/redirect', passport.authenticate('google'), (req, res) => {
