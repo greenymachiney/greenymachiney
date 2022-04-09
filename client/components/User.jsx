@@ -19,6 +19,8 @@ import CreateBarCrawl from './CreateBarCrawl.jsx';
 import CreateStaticEvent from './CreateStaticEvent.jsx';
 import Login from './Login.jsx';
 import ShoppingList from './ShoppingList.jsx';
+import Weather from './Weather.jsx';
+import Profile from './Profile.jsx';
 
 const User = () => {
   const { path, url } = useRouteMatch();
@@ -66,6 +68,12 @@ const User = () => {
               </Link>
               <Link to={`${url}/search`} className="nav-item nav-link">
                 Search
+              </Link>
+              <Link to={`${url}/weather`} className="nav-item nav-link">
+                Weather
+              </Link>
+              <Link to={`${url}/profile`} className="nav-item nav-link">
+                Profile
               </Link>
             </div>
             <div className="navbar-nav">
@@ -120,17 +128,19 @@ const User = () => {
           </Switch>
           {/* /////////////////////////////////// Event Routes END RENE ///////////////////////////////////*/}
 
-          <Route path={`${path}`}>
+          <Route path={`${path}/weather`}>
+            <Weather />
+          </Route>
+
+          <Route path={`${path}/profile`}>
+            <Profile />
+          </Route>
+          <Route exact path={`${path}`}>
             <BarCart />
           </Route>
         </Switch>
 
         {/* /////////////////////////////////// FOOTER COMMENTED OUT BY RENE ///////////////////////////////////*/}
-        {/* <div className="footer fixed-bottom">
-          <div className="text-center p-3">
-            2021 <a className="text-dark" href="https://github.com/greenymachiney/greenymachiney">Greeny Machiney</a> - Emma Pejko, Amelia Neville, Jake Young, Luke Johnson
-          </div>
-        </div> */}
       </div>
     </BrowserRouter>
   );
