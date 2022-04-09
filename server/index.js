@@ -11,6 +11,7 @@ const drunkRouter = require('./routes/drunk-routes');
 const eventRouter = require('./routes/event-routes');
 const weatherRouter = require('./routes/weather-routes');
 const shoppingRouter = require('./routes/shopping-routes');
+const profileRouter = require('./routes/profile-routes')
 const passportSetup = require('../config/passport-setup');
 const keys = require('../config/keys');
 
@@ -43,6 +44,7 @@ app.use('/shopping', shoppingRouter);
 app.use('/drunk', drunkRouter);
 app.use('/event', eventRouter);
 app.use('/', weatherRouter);
+app.use('/profile', profileRouter);
 
 
 app.get('*', (req, res) => {

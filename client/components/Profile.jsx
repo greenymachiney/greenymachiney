@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Friend from "./Friend.jsx";
+import axios from "axios";
 
 const Profile = () => {
   const [profileName, setProfileName] = useState("");
@@ -7,14 +9,14 @@ const Profile = () => {
 
 
   useEffect(() => {
-    axios.get("/profile").then((profile) => {
-      const user = profile.data;
-      console.log(user);
-      setProfileName(user.fullName);
-      setPicture(user.picture);
+    axios.get("/profile/user").then((userdata) => {
+      const user = userdata.data;
+      // console.log(user);
+      setProfileName(user.username);
+      setPicture(user.thumbnail);
       setFriends(user.friends)
     });
-  });
+  }, []);
 
 
   return (
@@ -22,18 +24,17 @@ const Profile = () => {
       <div className='bar-cart-header'>
         <h1>Profile</h1>
       </div>
+      <img
+        src={picture}
+        alt="new"
+      />
       <div>
         {profileName}
-        <img
-          src={picture}
-          alt="new"
-        />
-        <Friend friends={friends} />
-
       </div>
+      <Friend friends={friends} />
     </div>
 
-      )
+  )
 };
 
-      export default Profile;
+export default Profile;

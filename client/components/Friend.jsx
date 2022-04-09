@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Profile from "./Profile.jsx";
 
-const Friend = (friends) => {
+const Friend = ({friends}) => {
   
   
 
@@ -9,9 +10,12 @@ const Friend = (friends) => {
 
   return (
     <div>
-      {friends.map((friend) => {
+      {
+      friends.length === 0 ? null :
+      friends.map((friend) => {
         <li>{friend}</li>
-      })}
+      })
+      }
     </div>
 
   )
