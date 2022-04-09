@@ -9,6 +9,7 @@ const { User } = require('./database');
 const authRouter = require('./routes/auth-routes');
 const drunkRouter = require('./routes/drunk-routes');
 const eventRouter = require('./routes/event-routes');
+const weatherRouter = require('./routes/weather-routes');
 const shoppingRouter = require('./routes/shopping-routes');
 const passportSetup = require('../config/passport-setup');
 const keys = require('../config/keys');
@@ -41,6 +42,8 @@ app.use('/auth', authRouter);
 app.use('/shopping', shoppingRouter);
 app.use('/drunk', drunkRouter);
 app.use('/event', eventRouter);
+app.use('/', weatherRouter);
+
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(DIST_DIR, 'index.html'));
