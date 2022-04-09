@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
-import Marker from './Marker.JSX';
+import Marker from './Marker.jsx';
 import Map from './Map.jsx';
 // the google maps wrapper lets my use a google map inside a component
 import { Wrapper } from '@googlemaps/react-wrapper';

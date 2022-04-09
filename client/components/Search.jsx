@@ -50,13 +50,21 @@ const Search = () => {
 
       <div>
         <div className='child inline-block-child search'>
-          <input className='search-box' value={search} placeholder="Search for a new drink" onChange={(e) => setSearch(e.target.value)}/>
-          <button className="btn btn-success btn-sm search" onClick={getCocktailByName}>
-            Search
+          <input 
+            className='search-box' 
+            value={search} 
+            placeholder="Search for a new drink" 
+            onChange={(e) => setSearch(e.target.value)}/>
+          <button 
+            className="btn btn-success btn-sm search" 
+            onClick={getCocktailByName}>
+              Search
           </button>
         </div>
         <div className='child inline-block-child'>
-          <button className="btn btn-success btn-sm" onClick={getRandomCocktail}>
+          <button 
+            className="btn btn-success btn-sm" 
+            onClick={getRandomCocktail}>
             Get a Random Drink
           </button>
         </div>
@@ -65,7 +73,9 @@ const Search = () => {
       <hr />
       {
         !drink.strDrink ? null :
-        <Drink drink={drink} saveDrink={saveDrink}/>
+        <Drink 
+          drink={drink} 
+          saveDrink={saveDrink}/>
       }
       <hr/>
 
@@ -74,7 +84,14 @@ const Search = () => {
           !drinks ? null :
           <div className="list-group">
             {
-              drinks.map((drink, i) => <button key={i} onClick={() => getCocktailByExactName(drink.strDrink)} type="button" className="list-group-item list-group-item-action" aria-current="true">{drink.strDrink}</button>)
+              drinks.map((drink, i) => 
+                <button 
+                  key={i} 
+                  onClick={() => getCocktailByExactName(drink.strDrink)} 
+                  type="button" 
+                  className="list-group-item list-group-item-action" 
+                  aria-current="true">{drink.strDrink}
+                </button>)
             }
           </div>
         }
