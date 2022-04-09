@@ -7,6 +7,7 @@ import Search from './Search.jsx';
 import Events from "./Events.jsx";
 import Login from "./Login.jsx";
 import ShoppingList from "./ShoppingList.jsx";
+import Weather from './Weather.jsx'
 import Profile from './Profile.jsx';
 
 const User = () => {
@@ -31,6 +32,7 @@ const User = () => {
             <Link to={`${url}/recipes`} className="nav-item nav-link">Drink Book</Link>
             <Link to={`${url}/events`} className="nav-item nav-link">Events</Link>
             <Link to={`${url}/shoppinglist`} className="nav-item nav-link">Shopping List</Link>
+            <Link to={`${url}/weather`} className="nav-item nav-link">Weather</Link>
             <Link to={`${url}/search`} className="nav-item nav-link">Search</Link>
             <Link to={`${url}/profile`} className="nav-item nav-link">Profile</Link>
           </div>
@@ -56,6 +58,9 @@ const User = () => {
           </Route>
           <Route path={`${path}/shoppinglist`}>
             <ShoppingList />
+          </Route>
+          <Route path={`${path}/weather`}>
+            <Weather />
           </Route>
           <Route path={`${path}/events`}>
             <Events />
