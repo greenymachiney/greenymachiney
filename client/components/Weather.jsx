@@ -16,8 +16,8 @@ const Weather = () => {
       setLon(position.coords.longitude);
     });
       axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`)
-      .then(response => console.log('LINE 19', response.data)) //returns object of weather data for current location
-      .catch(error => { console.error('LINE 25: ', error); //but error is thrown
+      .then(response => console.log('LINE 19', response.data))
+      .catch(error => { console.error('LINE 25: ', error);
       })
   }, [lat, lon]);
 
