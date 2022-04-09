@@ -5,8 +5,8 @@ const {
   getRandomCocktail,
   getCocktailByIngredient,
   getCocktailByName,
-} = require('../api/getCocktail');
-const { User } = require('../database');
+} = require("../api/getCocktail");
+const { User } = require("../database");
 
 //check if user is logged in
 const authCheck = (req, res, next) => {
@@ -19,8 +19,8 @@ const authCheck = (req, res, next) => {
 };
 
 //final redirect upon login
-drunkRouter.get('/', authCheck, (req, res) => {
-  console.log('LINE 23 || DRUNKROUTER || REQ || \n', req);
+drunkRouter.get("/", authCheck, (req, res) => {
+  console.log("LINE 23 || DRUNKROUTER || REQ || \n", req);
   res.redirect(`/${req.user.username}`);
 });
 
@@ -31,13 +31,13 @@ drunkRouter.get("/randomCocktail", (req, res) => {
       res.status(200).send(response.data.drinks);
     })
     .catch((err) => {
-      console.error('error in drunkRouter: ', err);
+      console.error("error in drunkRouter: ", err);
       res.sendStatus(404);
     });
 });
 
 //responds with a list of cocktails searched by ingredient in the api
-drunkRouter.get('/cocktailByIngredient/:ingredient', (req, res) => {
+drunkRouter.get("/cocktailByIngredient/:ingredient", (req, res) => {
   const { ingredient } = req.params;
   getCocktailByIngredient(ingredient)
     .then((response) => {
@@ -89,14 +89,14 @@ drunkRouter.put("/saveCocktail", (req, res) => {
 });
 
 //gets a users liquor list from the database
-drunkRouter.get('/liquorList', (req, res) => {
+drunkRouter.get("/liquorList", (req, res) => {
   User.findOne({ username: req.user.username })
     .then((user) => res.send(user.liquorList))
     .catch((err) => console.error(err));
 });
 
 //adds to a users liquor list
-drunkRouter.put('/liquorList', (req, res) => {
+drunkRouter.put("/liquorList", (req, res) => {
   User.findOne({ username: req.user.username }).then((user) =>
     !user.liquorList.includes(req.body.liquorList)
       ? User.updateOne(
@@ -218,14 +218,26 @@ drunkRouter.put("/userDrinks/delete", (req, res) => {
   console.log(username);
   User.findOne({ username })
     .then((user) => {
-      if (user.userDrinks.includes(drink)) {
+      if (
+        user.userDrinks.find((drinkRecipe) => {
+          return drink.recipeName === drinkRecipe.recipeName;
+        })
+      ) {
+        console.log("LINE 222", user.userDrinks);
+        console.log(
+          "LINE 223",
+          user.userDrinks.find((drinkRecipe) => {
+            return drink.recipeName === drinkRecipe.recipeName;
+          })
+        );
         User.updateOne(
           { username },
           {
             $pull: {
-              userDrinks: drink.recipeName,
+              userDrinks: drink,
             },
-          }
+          },
+          { new: true }
         ).then(() => res.sendStatus(201));
       } else {
         res.sendStatus(201);
