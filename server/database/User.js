@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema({
   drinks: [],
   shoppinglist: [],
   events: [],
+  userDrinks: [],
 });
 
 const User = mongoose.model("User", UserSchema);
