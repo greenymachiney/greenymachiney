@@ -1,23 +1,25 @@
 body {
-  background-color: #94ad24;
+  background-color: white;
 }
 
 /* /////////////////////////////////// FIVE GUYS CSS ///////////////////////////////////*/
 
 /* Floating action button CSS */
 .fab-container {
+  height: 200;
+  width: 200;
   position: fixed;
-  bottom: 10px;
-  right: 10px;
+  bottom: 20px;
+  right: 20px;
   z-index: 999;
   cursor: pointer;
 }
 
 .fab-icon-holder {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: 100%;
-  background: #016fb9;
+  background: #f83f18;
 
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
@@ -37,8 +39,8 @@ body {
 }
 
 .fab {
-  width: 56px;
-  height: 56px;
+  width: 100px;
+  height: 100px;
   background: #f83f18;
 }
 
@@ -47,7 +49,7 @@ body {
   margin: 0;
 
   position: absolute;
-  bottom: 70px;
+  bottom: 120px;
   right: 0;
 
   opacity: 0;
@@ -76,57 +78,40 @@ body {
   white-space: nowrap;
   border-radius: 3px;
   font-size: 16px;
-  background: #666666;
+  /* background: #666666; */
   color: #ffffff;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); */
   margin-right: 10px;
 }
 /* ////////////////////////////////////////// MAP CSS ////////////////////////////////////////////// */
-.map-h2 {
-  text-transform: uppercase;
-  font-size: 1rem;
-  padding: 20px;
-  padding-left: 10px;
-  text-align: center;
+
+#map {
+  height: 70vh;
+  width: 100vw;
+  /* z-index: -1; */
 }
 
-.google-map {
-  width: 100%;
-  height: 60vh;
+.create-event-header {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: #222;
+  margin: 0;
+  padding: auto;
 }
 
-.pin {
-  display: flex;
-  align-items: center;
-  width: 180px;
-  color: var(--main-blue);
+.create-event-map {
+  z-index: 0;
+  -webkit-box-shadow: -2px -1px 15px 7px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: -3px -2px 30px 14px rgba(0, 0, 0, 0.425);
+  box-shadow: -4px -3px 45px 21px rgba(0, 0, 0, 0.35);
 }
 
-.pin-icon {
-  font-size: 4rem;
-}
-
-.pin-text {
-  font-size: 1.3em;
-}
-
-@media screen and (min-width: 799px) {
-  .google-map {
-    height: 80vh;
-  }
-
-  .map-h2 {
-    font-size: 1.3rem;
-    font-weight: 400;
-  }
-
-  .pin {
-    width: 15vw;
-  }
-
-  .pin-icon {
-    font-size: 10vw;
-  }
+.create-event-form {
+  width: 100vw;
+  z-index: 2;
+  background-color: white;
+  box-shadow: gray;
 }
 
 /* //////////////////////////////////////////////////////////////////////////////////////// */
@@ -249,7 +234,7 @@ events styling
 
 .events-header {
   text-align: center;
-  background: #95ac38;
+  background: white;
   color: black;
   font-size: 30px;
 }

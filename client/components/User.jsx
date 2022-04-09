@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Wrapper, Status } from '@googlemaps/react-wrapper';
 import {
   Switch,
   Route,
@@ -6,7 +7,9 @@ import {
   Link,
   useRouteMatch,
 } from 'react-router-dom';
-import { Wrapper } from '@googlemaps/react-wrapper';
+const googleMapsApiKey = 'AIzaSyBr7t_kZMkAIIUXDyHkB002uPLl95nS3cc';
+
+// import { Wrapper } from '@googlemaps/react-wrapper';
 
 import BarCart from './BarCart.jsx';
 import Recipes from './Recipes.jsx';
@@ -100,6 +103,7 @@ const User = () => {
             </Route>
             {/* LINK BAR CRAWL ROUTE TO CREATEBARCRAWL COMPONENT */}
             <Route
+              exact
               path={`${path}/events/create-bar-crawl`}
               element={<CreateBarCrawl />}
             >
@@ -107,23 +111,19 @@ const User = () => {
             </Route>
             {/* LINK BAR CRAWL ROUTE TO CREATESTATICEVENT COMPONENT */}
             <Route
+              exact
               path={`${path}/events/create-static-event`}
               element={<CreateStaticEvent />}
-              onClick={() => console.log('LINE 105 || APP.jsx')}
             >
-              <Wrapper apiKey="AIzaSyBr7t_kZMkAIIUXDyHkB002uPLl95nS3cc">
-                <CreateStaticEvent
-                  onClick={() => console.log('LINE 105 || APP.jsx')}
-                />
-              </Wrapper>
+              <CreateStaticEvent />
             </Route>
           </Switch>
+          {/* /////////////////////////////////// Event Routes END RENE ///////////////////////////////////*/}
 
           <Route path={`${path}`}>
             <BarCart />
           </Route>
         </Switch>
-        {/* /////////////////////////////////// Event Routes END RENE ///////////////////////////////////*/}
 
         {/* /////////////////////////////////// FOOTER COMMENTED OUT BY RENE ///////////////////////////////////*/}
         {/* <div className="footer fixed-bottom">

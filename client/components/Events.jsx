@@ -140,7 +140,7 @@ const Events = () => {
           </div>
         </div>
       ))}
-      {/*/////////////////////////////////// FAB HTML ///////////////////////////////////*/}
+      {/*////////////////////////////////////////////////////////////////////// FAB HTML //////////////////////////////////////////////////////////////////////*/}
       <div className="fab-container">
         <div className="fab fab-icon-holder">
           <i className="fas fa-plus"></i>
@@ -149,7 +149,7 @@ const Events = () => {
         <ul className="fab-options">
           <li>
             <span className="fab-label">New Bar Crawl</span>
-            {/* Linking to "CreateBarCrawl bar crawl view" */}
+            {/*//////////////////////////// Linking to "CreateBarCrawl bar crawl view" ///////////////////////*/}
             <Link
               to={`${url}/create-bar-crawl`}
               onClick={() => console.log(`LINE 155 || EVENTS.JS ||`, url, path)}
@@ -163,10 +163,10 @@ const Events = () => {
           </li>
           <li>
             <span className="fab-label">New Party</span>
-            {/* Linking to "CreateStaticEvent static event view" */}
+            {/*///////////////////// Linking to "CreateStaticEvent static event view" /////////////////////////*/}
             <Link
               to={`${url}/create-static-event`}
-              onClick={() => console.log(`LINE 178 || EVENTS.JS ||`, url, path)}
+              // onClick={() => console.log(`LINE 178 || EVENTS.JS ||`, url, path)}
             >
               <div className="fab-icon-holder">
                 <i className="fas fa-globe"></i>
@@ -175,8 +175,7 @@ const Events = () => {
           </li>
         </ul>
       </div>
-
-      {/* /////////////////////////////////////////////////////////////////////////////// */}
+      {/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
     </div>
   );
 };
