@@ -32,6 +32,14 @@ const User = () => {
     setMenu(menu === "none" ? "block" : "none");
   };
 
+  const [lat, setLat] = useState();
+  const [lon, setLon] = useState();
+  
+  navigator.geolocation.getCurrentPosition(function(position) { //returns lat/lon based on user location
+    setLat(position.coords.latitude + .000001);
+    setLon(position.coords.longitude + .000001);
+  });
+
   return (
     <BrowserRouter>
       <div>
@@ -111,6 +119,12 @@ const User = () => {
           <Route path={`${path}/createrecipes`}>
             <CreateRecipes />
           </Route>
+          <Route path={`${path}/weather`}>
+            <Weather lat={lat} lon={lon}/>
+          </Route>
+          <Route exact path={`${path}`}>
+            <BarCart />
+          </Route>
           {/* /////////////////////////////////// Event Routes START RENE ///////////////////////////////////*/}
 
           {/* WRAP ALL EVENT ENDPOINTS IN A SWITCH STATEMENT */}
@@ -137,13 +151,6 @@ const User = () => {
             </Route>
           </Switch>
           {/* /////////////////////////////////// Event Routes END RENE ///////////////////////////////////*/}
-
-          <Route path={`${path}/weather`}>
-            <Weather />
-          </Route>
-          <Route exact path={`${path}`}>
-            <BarCart />
-          </Route>
         </Switch>
 
         {/* /////////////////////////////////// FOOTER COMMENTED OUT BY RENE ///////////////////////////////////*/}
