@@ -1,6 +1,8 @@
 import axios from "axios";
 import React from "react";
 
+import Drink from "./Drink.jsx";
+
 class BarCart extends React.Component {
   constructor(props){
     super(props);
@@ -82,7 +84,7 @@ componentDidMount() {
   this.getLiquorList();
 }
 
-  render() {
+render() {
   const {drink} = this.state
   return (
       <div>
@@ -91,6 +93,12 @@ componentDidMount() {
         </div>
         <div>
         {
+          !drink.strDrink ? null :
+          <Drink 
+            drink={drink} 
+            saveDrink={this.saveDrink}/>
+        }
+        {/* {
           !drink.strDrink ? null :
           <div className="card mb-3">
           <div className="row no-gutters">
@@ -126,7 +134,7 @@ componentDidMount() {
               </div>
               </div>
           </div>
-        }
+        } */}
         </div>
           <div className='child inline-block-child search'>
        <input type='text' name='liquor' className='search-box' value={this.state.liquor} onChange={(event) =>  this.setState({liquor: event.target.value})}/>
