@@ -6,6 +6,7 @@ const Profile = () => {
   const [profileName, setProfileName] = useState("");
   const [picture, setPicture] = useState("");
   const [friends, setFriends] = useState([]);
+  const [users, setUsers] = useState([]);
 
 
   useEffect(() => {
@@ -16,7 +17,14 @@ const Profile = () => {
       setPicture(user.thumbnail);
       setFriends(user.friends)
     });
+    axios.get("/profile/users").then((response) => {
+      setUsers(response.data)
+    })
   }, []);
+
+  const handleAddFriend = () => {
+    
+  }
 
 
   return (
@@ -29,9 +37,23 @@ const Profile = () => {
         alt="new"
       />
       <div>
-        {profileName}
+        Hello {profileName}
       </div>
       <Friend friends={friends} />
+      <h4>Other Users</h4>
+      <div>
+        {
+          users.map(user =>
+            <div>
+              <br/>
+              {user}
+              <button>
+                Add as Friend
+              </button>
+            </div>
+          )
+        }
+      </div>
     </div>
 
   )
