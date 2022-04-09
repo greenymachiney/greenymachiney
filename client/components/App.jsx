@@ -21,7 +21,6 @@ const App = () => {
       <ThemeProvider theme={themeMode}>
         <>
           <GlobalStyles />
-          <div className="App">
           <Toggle theme={theme} toggleTheme={themeToggler} />
           <Router>
             <Switch>
@@ -32,7 +31,6 @@ const App = () => {
               </Route>
             </Switch>
           </Router>
-          </div>
         </>
       </ThemeProvider>
     </div>
