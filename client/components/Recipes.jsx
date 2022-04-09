@@ -51,7 +51,7 @@ class Recipes extends React.Component {
 
   deleteUserDrink(drink) {
     axios
-      .put("/drunk/userDrinks/delete", { drink })
+      .put("/drunk/userDrinks/delete", { drink: drink })
       .then(() => this.setState({ userDrinks: [] }))
       .then(() => this.getUserDrinks());
   }
