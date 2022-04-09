@@ -5,15 +5,6 @@ const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 
-<<<<<<< HEAD
-const { User } = require("./database");
-const authRouter = require("./routes/auth-routes");
-const drunkRouter = require("./routes/drunk-routes");
-const eventRouter = require("./routes/event-routes");
-const shoppingRouter = require("./routes/shopping-routes");
-const passportSetup = require("../config/passport-setup");
-const keys = require("../config/keys");
-=======
 const { User } = require('./database');
 const authRouter = require('./routes/auth-routes');
 const drunkRouter = require('./routes/drunk-routes');
@@ -23,7 +14,6 @@ const shoppingRouter = require('./routes/shopping-routes');
 const profileRouter = require('./routes/profile-routes')
 const passportSetup = require('../config/passport-setup');
 const keys = require('../config/keys');
->>>>>>> f9150abc70f7192a88613d23ad01ed2ea54183a0
 
 
 const PORT = 3000;
@@ -49,12 +39,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //routes
-<<<<<<< HEAD
-app.use("/auth", authRouter);
-app.use("/shopping", shoppingRouter);
-app.use("/drunk", drunkRouter);
-app.use("/event", eventRouter);
-=======
 app.use('/auth', authRouter);
 app.use('/shopping', shoppingRouter);
 app.use('/drunk', drunkRouter);
@@ -62,7 +46,6 @@ app.use('/event', eventRouter);
 app.use('/', weatherRouter);
 app.use('/profile', profileRouter);
 
->>>>>>> f9150abc70f7192a88613d23ad01ed2ea54183a0
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(DIST_DIR, "index.html"));

@@ -87,73 +87,18 @@ class BarCart extends React.Component {
     this.getLiquorList();
   }
 
-<<<<<<< HEAD
   render() {
     const { drink } = this.state;
     return (
-=======
-render() {
-  const {drink} = this.state
-  return (
->>>>>>> f9150abc70f7192a88613d23ad01ed2ea54183a0
       <div>
         <div className="bar-cart-header">
           <h1>Bar Cart</h1>
         </div>
         <div>
-<<<<<<< HEAD
           {!drink.strDrink ? null : (
-            <div className="card mb-3">
-              <div className="row no-gutters">
-                <div className="col-md-4">
-                  <img className="card-img-top" src={drink.strDrinkThumb}></img>
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h2 className="card-title">{drink.strDrink}</h2>
-                    <div>
-                      <h5>Ingredients:</h5>
-                      <div>
-                        {this.getIngredients().map((ingredient, i) => (
-                          <div key={i} className="ingredient-item">
-                            <button
-                              onClick={() => this.addToShoppingList(ingredient)}
-                              className="btn btn-success btn-sm add-ingredient-button"
-                              title="add to your shopping list!"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                className="bi bi-plus"
-                                viewBox="2 2 16 16"
-                              >
-                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                              </svg>
-                            </button>
-                            {drink[`strMeasure${i + 1}`]} {ingredient}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      Instructions:
-                      <div>{drink.strInstructions}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Drink drink={drink} saveDrink={this.saveDrink} />
           )}
-=======
-        {
-          !drink.strDrink ? null :
-          <Drink 
-            drink={drink} 
-            saveDrink={this.saveDrink}/>
-        }
-        {/* {
+          {/* {
           !drink.strDrink ? null :
           <div className="card mb-3">
           <div className="row no-gutters">
@@ -190,7 +135,6 @@ render() {
               </div>
           </div>
         } */}
->>>>>>> f9150abc70f7192a88613d23ad01ed2ea54183a0
         </div>
         <div className="child inline-block-child search">
           <input
