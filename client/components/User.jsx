@@ -1,43 +1,44 @@
-import React, { useState } from "react";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import React, { useState } from 'react';
+import { Wrapper, Status } from '@googlemaps/react-wrapper';
 import {
   Switch,
   Route,
   BrowserRouter,
   Link,
   useRouteMatch,
-} from "react-router-dom";
-const googleMapsApiKey = "AIzaSyBr7t_kZMkAIIUXDyHkB002uPLl95nS3cc";
+} from 'react-router-dom';
+const googleMapsApiKey = 'AIzaSyBr7t_kZMkAIIUXDyHkB002uPLl95nS3cc';
 
 // import { Wrapper } from '@googlemaps/react-wrapper';
 
-import BarCart from "./BarCart.jsx";
-import Recipes from "./Recipes.jsx";
-import Search from "./Search.jsx";
-import Events from "./Events.jsx";
-import CreateBarCrawl from "./CreateBarCrawl.jsx";
-import CreateStaticEvent from "./CreateStaticEvent.jsx";
-import Login from "./Login.jsx";
-import ShoppingList from "./ShoppingList.jsx";
-import Weather from "./Weather.jsx";
-import Profile from "./Profile.jsx";
-import CreateRecipes from "./CreateRecipes.jsx";
+import BarCart from './BarCart.jsx';
+import Recipes from './Recipes.jsx';
+import Search from './Search.jsx';
+import Events from './Events.jsx';
+import CreateBarCrawl from './CreateBarCrawl.jsx';
+import CreateStaticEvent from './CreateStaticEvent.jsx';
+import Login from './Login.jsx';
+import ShoppingList from './ShoppingList.jsx';
+import Weather from './Weather.jsx';
+import Profile from './Profile.jsx';
+import CreateRecipes from './CreateRecipes.jsx';
 
 const User = () => {
   const { path, url } = useRouteMatch();
 
-  const [menu, setMenu] = useState("none");
+  const [menu, setMenu] = useState('none');
 
   const toggleMenu = () => {
-    setMenu(menu === "none" ? "block" : "none");
+    setMenu(menu === 'none' ? 'block' : 'none');
   };
 
   const [lat, setLat] = useState();
   const [lon, setLon] = useState();
-  
-  navigator.geolocation.getCurrentPosition(function(position) { //returns lat/lon based on user location
-    setLat(position.coords.latitude + .000001);
-    setLon(position.coords.longitude + .000001);
+
+  navigator.geolocation.getCurrentPosition(function (position) {
+    //returns lat/lon based on user location
+    setLat(position.coords.latitude + 0.000001);
+    setLon(position.coords.longitude + 0.000001);
   });
 
   return (
@@ -120,7 +121,7 @@ const User = () => {
             <CreateRecipes />
           </Route>
           <Route path={`${path}/weather`}>
-            <Weather lat={lat} lon={lon}/>
+            <Weather lat={lat} lon={lon} />
           </Route>
           <Route exact path={`${path}`}>
             <BarCart />
