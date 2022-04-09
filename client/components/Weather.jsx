@@ -4,12 +4,11 @@ const key = require('../../config/keys').api.weather;
 
 
 const Weather = ({lat, lon}) => {
-  // const [lat, setLat] = useState();
-  // const [lon, setLon] = useState();
   const [city, setCity] = useState();
   const [temp, setTemp] = useState();
   const [feels, setFeels] = useState();
   const [main, setMain] = useState();
+  const [humid, setHumid] = useState();
   const [description, setDescription] = useState();
 
 
@@ -19,20 +18,13 @@ const Weather = ({lat, lon}) => {
       setCity(response.data.name)
       setTemp(response.data.main.temp)
       setFeels(response.data.main.feels_like)
+      setHumid(response.data.main.humidity)
       setMain(response.data.weather[0].main)
       setDescription(response.data.weather[0].description)
     })
-    .catch(error => { console.error('LINE 20: ', error);
+    .catch(error => { console.error('ERROR: ', error);
   })
-  
-}
-
-// useEffect(() => {
-//     navigator.geolocation.getCurrentPosition(function(position) { //returns lat/lon based on user location
-//       setLat(position.coords.latitude + .000001);
-//       setLon(position.coords.longitude + .000001);
-//     });
-//   }, []);
+};
 
   return (
     <>
@@ -46,10 +38,13 @@ const Weather = ({lat, lon}) => {
     {
       !temp ? null :  (
       <>
-      <div>Temp: {temp}</div>
+      <div className='list-group-item'>
       <div>City: {city}</div>
-      <div>Feels Like: {feels}</div>
-      <div>It's a {main} day with a {description}</div>
+      <div>Temperature: {temp}°</div>
+      <div>Feels Like: {feels}°</div>
+      <div>Humidity: {humid}%</div>
+      <div>It's {main} outside with a {description}</div>
+      </div>
       </>
       )
     }
