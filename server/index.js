@@ -1,9 +1,9 @@
-const path = require('path');
-const express = require('express');
-const cookieSession = require('cookie-session');
-const passport = require('passport');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+const path = require("path");
+const express = require("express");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 
 const { User } = require('./database');
 const authRouter = require('./routes/auth-routes');
@@ -17,7 +17,7 @@ const keys = require('../config/keys');
 
 
 const PORT = 3000;
-const DIST_DIR = path.resolve(__dirname, '..', 'dist');
+const DIST_DIR = path.resolve(__dirname, "..", "dist");
 
 const app = express();
 
@@ -47,12 +47,12 @@ app.use('/', weatherRouter);
 app.use('/profile', profileRouter);
 
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(DIST_DIR, 'index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(DIST_DIR, "index.html"));
 });
 
 app.listen(PORT, () => {
   console.log(`
-    Server is listening at port ${PORT}
+    Server is listening at port : ${PORT}
   `);
 });
