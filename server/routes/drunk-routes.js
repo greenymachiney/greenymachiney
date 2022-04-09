@@ -213,8 +213,9 @@ drunkRouter.put("/userDrinks", (req, res) => {
 //deletes a user drink from the database
 drunkRouter.put("/userDrinks/delete", (req, res) => {
   const { drink } = req.body;
+  console.log(drink);
   const { username } = req.user;
-
+  console.log(username);
   User.findOne({ username })
     .then((user) => {
       if (user.userDrinks.includes(drink)) {
@@ -222,7 +223,7 @@ drunkRouter.put("/userDrinks/delete", (req, res) => {
           { username },
           {
             $pull: {
-              userDrinks: drink,
+              userDrinks: drink.recipeName,
             },
           }
         ).then(() => res.sendStatus(201));
