@@ -42,11 +42,13 @@ const CreateRecipes = () => {
   //   </div>
   //   <Image publicId="sample" width="0.5" />
   // </CloudinaryContext>
-  const upLoadPresetName = "wcb9hx1j";
+  const upLoadPresetName = "Crwlr-FIVE-Guys";
   const cloudName = "ddg1jsejq";
 
   const cloudinaryAPI_KEY = "836695157638662";
-  const cloudinary_URL = 'https://api.cloudinary.com/v1_1/ddpdhbrkj/image/upload';
+  
+  const cloudinary_URL =
+    "https://api.cloudinary.com/v1_1/ddpdhbrkj/image/upload";
 
   const { recipeName, ingredients, instructions, category } = recipe;
   return (
@@ -88,7 +90,6 @@ const CreateRecipes = () => {
 };
 
 export default CreateRecipes;
-
 
 /**
  *   document.addEventListener("DOMContentLoaded", async () => {
