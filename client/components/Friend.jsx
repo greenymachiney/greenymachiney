@@ -3,11 +3,6 @@ import Profile from "./Profile.jsx";
 
 const Friend = ({friends}) => {
   
-  
-
-  
-
-
   return (
     <div>
       {
@@ -17,7 +12,6 @@ const Friend = ({friends}) => {
       })
       }
     </div>
-
   )
 };
 
