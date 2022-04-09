@@ -16,12 +16,23 @@ const Weather = () => {
       setLon(position.coords.longitude);
     });
       axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`)
-      .then(res => res)
-      .then(result => {
-        setWeather(result.data);
-        console.log('LINE 25: ', result.data); //returns object of current weather data from geolocation lat/lon
+      .then(response => console.log('LINE 19', response.data))
+      .catch(error => { console.error('LINE 25: ', error);
       })
   }, [lat, lon]);
+
+  // const getWeather = (coord) => {
+  //   axios.get('/weather/:lat/:lon', {
+  //     params: { lat: coord.lat, lon: coord.lon }
+  //   })
+  //   .then((response) => {
+  //     console.log('LINE 30', response);
+  //     setWeather(response.data);
+  //   })
+  //   .catch((err) => {
+  //     console.error('ERROR!! ', err);
+  //   })
+  // }
 
   return (
     <>
