@@ -3,57 +3,63 @@ const eventRouter = Router();
 
 const { User } = require('../database');
 
-
 //get request for events
 eventRouter.get('/', (req, res) => {
   const { username } = req.user;
   User.findOne({ username })
-  .then(user => {
-    res.status(200).send(user.events);
-  })
-  .catch(err => res.sendStatus(404));
-})
+    .then((user) => {
+      res.status(200).send(user.events);
+    })
+    .catch((err) => res.sendStatus(404));
+});
 
 //get users to invite
 eventRouter.get('/invites', (req, res) => {
   const { username } = req.user;
-  User.find( { username : {
-    $ne: username
-  }})
-  .then(users => {
-    if(users) {
-      res.status(200).send(users);
-    } else {
-      res.status(200).send([]);
-    }
+  User.find({
+    username: {
+      $ne: username,
+    },
   })
-  .catch(err => {
-    console.error(err);
-    res.sendStatus(404);
-  })
-
-})
+    .then((users) => {
+      if (users) {
+        res.status(200).send(users);
+      } else {
+        res.status(200).send([]);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(404);
+    });
+});
 
 //post request
 eventRouter.post('/addEvent', (req, res) => {
-  const { event } = req.body
-  const { username } = req.user
-  User.updateOne({ username }, {
-    $push: {
-      events: event
+  const { event } = req.body;
+  const { username } = req.user;
+  User.updateOne(
+    { username },
+    {
+      $push: {
+        events: event,
+      },
     }
-  })
-  .then(() => res.sendStatus(201))
-    .catch(err => {
+  )
+    .then(() => {
+      console.log('LINE 47 || EVENT ROUTES || ');
+      res.sendStatus(201);
+    })
+    .catch((err) => {
       console.error(err);
       res.sendStatus(500);
     });
-})
+});
 
 //add friend
 eventRouter.post('/addFriend', (req, res) => {
   const { friend, event } = req.body.data;
-  const { username } = req.user
+  const { username } = req.user;
 
   const getEventObj = (arrOfEvents) => {
     for (let i = 0; i < arrOfEvents.length; i++) {
@@ -64,21 +70,22 @@ eventRouter.post('/addFriend', (req, res) => {
       }
     }
     return arrOfEvents; //return whole arr
-  }
-  
-  User.findOne({ username })
-    .then(user => {
-      User.updateOne({ username }, {
-        $set: {
-          events: getEventObj(user.events)
-        }
-      })
-      .then(() => {
-        res.sendStatus(200);
-      })
-    })
-    .catch(err => res.sendStatus(404));
-})
+  };
 
+  User.findOne({ username })
+    .then((user) => {
+      User.updateOne(
+        { username },
+        {
+          $set: {
+            events: getEventObj(user.events),
+          },
+        }
+      ).then(() => {
+        res.sendStatus(200);
+      });
+    })
+    .catch((err) => res.sendStatus(404));
+});
 
 module.exports = eventRouter;
