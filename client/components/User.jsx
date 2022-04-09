@@ -135,7 +135,7 @@ const User = () => {
           <Route path={`${path}/profile`}>
             <Profile />
           </Route>
-          <Route exact path={`${path}`}>
+          <Route exact path={`${path}/`}>
             <BarCart />
           </Route>
         </Switch>
