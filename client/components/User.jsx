@@ -21,6 +21,7 @@ import Login from './Login.jsx';
 import ShoppingList from './ShoppingList.jsx';
 import Weather from './Weather.jsx';
 import Profile from './Profile.jsx';
+import CreateRecipes from './CreateRecipes.jsx';
 
 const User = () => {
   const { path, url } = useRouteMatch();
@@ -30,6 +31,15 @@ const User = () => {
   const toggleMenu = () => {
     setMenu(menu === 'none' ? 'block' : 'none');
   };
+
+  const [lat, setLat] = useState();
+  const [lon, setLon] = useState();
+
+  navigator.geolocation.getCurrentPosition(function (position) {
+    //returns lat/lon based on user location
+    setLat(position.coords.latitude + 0.000001);
+    setLon(position.coords.longitude + 0.000001);
+  });
 
   return (
     <BrowserRouter>
@@ -72,6 +82,9 @@ const User = () => {
               <Link to={`${url}/weather`} className="nav-item nav-link">
                 Weather
               </Link>
+              <Link to={`${url}/createrecipes`} className="nav-item nav-link">
+                Create Recipes
+              </Link>
               <Link to={`${url}/profile`} className="nav-item nav-link">
                 Profile
               </Link>
@@ -101,6 +114,18 @@ const User = () => {
           <Route path={`${path}/shoppinglist`}>
             <ShoppingList />
           </Route>
+          <Route path={`${path}/profile`}>
+            <Profile />
+          </Route>
+          <Route path={`${path}/createrecipes`}>
+            <CreateRecipes />
+          </Route>
+          <Route path={`${path}/weather`}>
+            <Weather lat={lat} lon={lon} />
+          </Route>
+          <Route exact path={`${path}`}>
+            <BarCart />
+          </Route>
           {/* /////////////////////////////////// Event Routes START RENE ///////////////////////////////////*/}
 
           {/* WRAP ALL EVENT ENDPOINTS IN A SWITCH STATEMENT */}
@@ -127,17 +152,6 @@ const User = () => {
             </Route>
           </Switch>
           {/* /////////////////////////////////// Event Routes END RENE ///////////////////////////////////*/}
-
-          <Route path={`${path}/weather`}>
-            <Weather />
-          </Route>
-
-          <Route path={`${path}/profile`}>
-            <Profile />
-          </Route>
-          <Route exact path={`${path}/`}>
-            <BarCart />
-          </Route>
         </Switch>
 
         {/* /////////////////////////////////// FOOTER COMMENTED OUT BY RENE ///////////////////////////////////*/}
