@@ -15,6 +15,7 @@ const weatherRouter = require('./routes/weather-routes');
 const shoppingRouter = require('./routes/shopping-routes');
 const profileRouter = require('./routes/profile-routes')
 const passportSetup = require('../config/passport-setup');
+const youtubeRouter = require('./routes/youtube-routes')
 const keys = require('../config/keys');
 
 // Set Port And Distribution Directory
@@ -48,6 +49,7 @@ app.use('/shopping', shoppingRouter);
 app.use('/drunk', drunkRouter);
 app.use('/event', eventRouter);
 app.use('/', weatherRouter);
+app.use('/youtube', youtubeRouter);
 app.use('/profile', profileRouter);
 
 
