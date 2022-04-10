@@ -82,7 +82,7 @@ class Recipes extends React.Component {
           <h1>Drink Book</h1>
         </div>
         <div>
-          {
+          {/* {
             !drinks ? null :
             <div className="list-group">
               {
@@ -94,7 +94,7 @@ class Recipes extends React.Component {
                 )
               }
             </div>
-          }
+          } */}
           {userDrinks.map((drink, index) => (
             <button>
               <a
