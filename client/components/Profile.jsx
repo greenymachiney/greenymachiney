@@ -22,8 +22,11 @@ const Profile = () => {
     })
   }, []);
 
-  const handleAddFriend = () => {
-    
+  const handleAddFriend = (friend) => {
+    console.log(friend)
+    axios.patch("/profile/sendFriendRequest", { username: friend, from: profileName}).then((friend) => {
+
+    })
   }
 
 
@@ -47,7 +50,7 @@ const Profile = () => {
             <div>
               <br/>
               {user}
-              <button>
+              <button onClick={() => handleAddFriend(user)}>
                 Add as Friend
               </button>
             </div>
