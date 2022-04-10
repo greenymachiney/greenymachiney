@@ -30,14 +30,14 @@ const Friend = ({ friends, friendRequests }) => {
       <h4>
         Friends List
       </h4>
-      <ul>
+      <div>
       {
         friends.length === 0 ? null :
           friends.map((friend) => {
             return <li>{friend}</li>
           })
       }
-      </ul>
+      </div>
     </div>
   )
 };
