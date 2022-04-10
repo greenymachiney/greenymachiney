@@ -35,6 +35,10 @@ The shopping list component displays the items saved in a users shopping list. T
 
 The search component is where a user can search for new recipes. they can click the get a random drink button to get a random drink from the cocktail api, or they can search using the input box. they can search by a term like 'vodka' or 'margarita' or can search for a specific drink name. If only one drink is returned by the search, it will automatically be shown in detail. If multiple drinks are returned, a list will show up and the user can click on the drinks to spotlight them and show the details. The add buttons next to the ingredients will add the ingredient to a users shopping list, and the heart button at the bottom of the recipe card will add the recipe to the users drink book.
 
+The Weather feature is where a user can click the check weather button to obtain the current weather conditions of their location before they go on a Bar Crawl.  It was made using the Open Weather api and requires an api key from them.
+
+The Switch Theme (dark mode) feature was created using "styled-components."  It injects a global theme throughout all the components to display a dark or light mode upon clicking the Switch Theme button.
+
 We have eslint Airbnb configured. We are using webpack and babel to compile our code.
 
 ### styling

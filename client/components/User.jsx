@@ -79,14 +79,14 @@ const User = () => {
               <Link to={`${url}/search`} className="nav-item nav-link">
                 Search
               </Link>
-              <Link to={`${url}/weather`} className="nav-item nav-link">
-                Weather
-              </Link>
               <Link to={`${url}/createrecipes`} className="nav-item nav-link">
                 Create Recipes
               </Link>
               <Link to={`${url}/profile`} className="nav-item nav-link">
                 Profile
+              </Link>
+              <Link to={`${url}/weather`} className="nav-item nav-link">
+                Weather
               </Link>
             </div>
             <div className="navbar-nav">
