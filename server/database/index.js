@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
-const mongoUri = 'mongodb://localhost/drinkdat';
+require('dotenv').config();
+const mongoUri = process.env.MONGO_URI;
 
 const db = mongoose.connect(mongoUri, {
   useNewUrlParser: true,

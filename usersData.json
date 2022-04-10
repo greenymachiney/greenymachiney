@@ -1,0 +1,62 @@
+[{
+  "_id": {
+    "$oid": "624e08e1e43ff529803f0f34"
+  },
+  "username": "John Murphy Fleenor",
+  "googleId": "109403537323545615921",
+  "thumbnail": "https://lh3.googleusercontent.com/a-/AOh14Gg98hnBSFIi5ZxpiWjS7ODvH9rovfIV02MnHsTsyw=s96-c",
+  "liquorList": [],
+  "drinks": [],
+  "shoppinglist": [],
+  "events": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "624e0cdaf504da11d4fee753"
+  },
+  "username": "Rodolfo Machirica",
+  "googleId": "117594272152113010830",
+  "thumbnail": "https://lh3.googleusercontent.com/a-/AOh14GgzmdKr-eLgTfN0wtAnUhms-b2m776bTsBdr-o-qg=s96-c",
+  "liquorList": [
+    "Vodka"
+  ],
+  "drinks": [],
+  "shoppinglist": [],
+  "events": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "624e0dc8f504da11d4fee778"
+  },
+  "username": "John Dyer",
+  "googleId": "112479434842682699185",
+  "thumbnail": "https://lh3.googleusercontent.com/a-/AOh14GhRCTFD6UD8KgGU35ts3AtF6immfde_F8uFvuePOA=s96-c",
+  "liquorList": [
+    "bourbon",
+    "gin",
+    "vodka"
+  ],
+  "drinks": [],
+  "shoppinglist": [
+    "Gin",
+    "Dry Vermouth",
+    "Olive",
+    "Dark rum",
+    "Light rum",
+    "Vodka"
+  ],
+  "events": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "624e0e15f504da11d4fee792"
+  },
+  "username": "Santo Lococo",
+  "googleId": "110446323164967082856",
+  "thumbnail": "https://lh3.googleusercontent.com/a-/AOh14GhBJ2Dce4zqNu10wuQsD9za4wcXyxQf3p0ODyrjJg=s96-c",
+  "liquorList": [],
+  "drinks": [],
+  "shoppinglist": [],
+  "events": [],
+  "__v": 0
+}]
