@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Image } from "cloudinary-react";
+
 class Recipes extends React.Component {
   constructor(props) {
     super(props);
@@ -37,11 +39,6 @@ class Recipes extends React.Component {
     });
   }
 
-  componentDidMount() {
-    this.getSavedDrinks();
-    this.getUserDrinks();
-  }
-
   handleClick(drink) {
     axios
       .put("/drunk/drinks", { drinks: drink })
@@ -58,6 +55,11 @@ class Recipes extends React.Component {
         this.setState({ userDrinks: [] });
       })
       .then(() => this.getUserDrinks());
+  }
+
+  componentDidMount() {
+    this.getSavedDrinks();
+    this.getUserDrinks();
   }
 
   render() {
@@ -84,7 +86,12 @@ class Recipes extends React.Component {
                 <h5 className="mb-1 hey" key={index}>
                   {drink.recipeName}
                 </h5>
-                <img src={drink.strDrinkThumb} width="100" height="100"></img>
+                <img
+                  src={`${drink.thumbnail}`}
+                  width="100"
+                  crop="scale"
+                  height="100"
+                ></img>
               </div>
               <p className="mb-1">{drink.instructions}</p>
               <small className="drinkCat">{drink.category}</small>
