@@ -16,6 +16,17 @@ const VideoPlayer = ({drink}) => {
       .catch((err) => console.error(err));
   }, [])
 
+//Former Version
+  // const [video, setVideo] = useState("");
+  // useEffect(() => {
+  //   console.log(drink);
+  //   axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=How%20to%20make%20a%20${drink.strDrink}&key=${youtubeAPIKey}`)
+  //     .then((response) => setVideo(response.data.items[0]))
+  //     .catch((error) => console.error(error));
+  // }, [])
+
+
+
   return (
     <div>
       {(!video) ? <div className='video-player'>Please wait...</div>
