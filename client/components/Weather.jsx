@@ -3,14 +3,23 @@ import axios from "axios";
 import styled from "styled-components";
 const key = require("../../config/keys").api.weather;
 
+const Button = styled.button`
+background-color: #3a4042;
+color: #f5f5f5;
+border: 1px solid #f5f5f5;
+border-radius: 4px;
+padding: 0.25em 1em;
+margin: 1em;
+font-size: 20px;
+cursor: pointer;
+`;
+
 const Weather = ({ lat, lon }) => {
   const [city, setCity] = useState();
   const [temp, setTemp] = useState();
-  const [feels, setFeels] = useState();
   const [wind, setWind] = useState();
   const [humid, setHumid] = useState();
-  const [description, setDescription] = useState();
-
+  
   const handleWeatherClick = () => {
     axios
       .get(
@@ -29,16 +38,6 @@ const Weather = ({ lat, lon }) => {
       });
   };
 
-  const Button = styled.button`
-  background-color: #3a4042;
-  color: #f5f5f5;
-  border: 1px solid #f5f5f5;
-  border-radius: 4px;
-  padding: 0.25em 1em;
-  margin: 1em;
-  font-size: 20px;
-  cursor: pointer;
-`;
 
   return (
     <>
@@ -76,18 +75,3 @@ const Weather = ({ lat, lon }) => {
 
 export default Weather;
 
-<div id="weather_wrapper">
-  <div class="weatherCard">
-    <div class="currentTemp">
-      <span class="temp">23&deg;</span>
-      <span class="location">Brussels</span>
-    </div>
-    <div class="currentWeather">
-      <span class="conditions">&#xf00d;</span>
-      <div class="info">
-        <span class="rain">1.3 MM</span>
-        <span class="wind">10 MPH</span>
-      </div>
-    </div>
-  </div>
-</div>;
