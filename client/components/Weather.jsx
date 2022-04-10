@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import styled from "styled-components";
 const key = require("../../config/keys").api.weather;
 
 const Weather = ({ lat, lon }) => {
@@ -28,15 +29,26 @@ const Weather = ({ lat, lon }) => {
       });
   };
 
+  const Button = styled.button`
+  background-color: #3a4042;
+  color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  border-radius: 4px;
+  padding: 0.25em 1em;
+  margin: 1em;
+  font-size: 20px;
+  cursor: pointer;
+`;
+
   return (
     <>
-      <button
+      <Button
         onClick={handleWeatherClick}
         className="btn btn-weather btn-sm"
         title="get weather"
       >
         Check Weather
-      </button>
+      </Button>
       {!temp ? null : (
         <>
           <div id="weather_wrapper">
