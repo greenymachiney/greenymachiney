@@ -1,10 +1,12 @@
+// Import Dependencies
 const path = require("path");
 const express = require("express");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
+const bodyParser = require("body-parser"); 
 
+// Import Routers
 const { User } = require('./database');
 const authRouter = require('./routes/auth-routes');
 const drunkRouter = require('./routes/drunk-routes');
@@ -15,12 +17,14 @@ const profileRouter = require('./routes/profile-routes')
 const passportSetup = require('../config/passport-setup');
 const keys = require('../config/keys');
 
-
+// Set Port And Distribution Directory
 const PORT = 3000;
 const DIST_DIR = path.resolve(__dirname, "..", "dist");
 
+// Initialize Server
 const app = express();
 
+// Use Middle-ware
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -50,6 +54,8 @@ app.use('/profile', profileRouter);
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(DIST_DIR, "index.html"));
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`
