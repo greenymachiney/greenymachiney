@@ -6,6 +6,7 @@ const Profile = () => {
   const [profileName, setProfileName] = useState("");
   const [picture, setPicture] = useState("");
   const [friends, setFriends] = useState([]);
+  const [friendRequests, setFriendRequests] = useState([]);
   const [users, setUsers] = useState([]);
 
 
@@ -16,18 +17,20 @@ const Profile = () => {
       setProfileName(user.username);
       setPicture(user.thumbnail);
       setFriends(user.friends)
+      setFriendRequests(user.friendRequests)
     });
     axios.get("/profile/users").then((response) => {
       setUsers(response.data)
     })
-  }, []);
+  }, [friends]);
 
   const handleAddFriend = (friend) => {
     console.log(friend)
-    axios.patch("/profile/sendFriendRequest", { username: friend, from: profileName}).then((friend) => {
-
-    })
+    axios.patch("/profile/sendFriendRequest", { username: friend, from: profileName})
+      .catch(err => console.error(err))
   }
+
+
 
 
   return (
@@ -42,7 +45,7 @@ const Profile = () => {
       <div>
         Hello {profileName}
       </div>
-      <Friend friends={friends} />
+      <Friend friends={friends} friendRequests={friendRequests} />
       <h4>Other Users</h4>
       <div>
         {
