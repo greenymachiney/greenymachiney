@@ -1,5 +1,7 @@
 const { Router } = require("express");
 const drunkRouter = Router();
+// const cloudinary = require("../../utils/cloudinary.js");
+// const upload = require("../../utils/multer");
 
 const {
   getRandomCocktail,
@@ -248,5 +250,18 @@ drunkRouter.put("/userDrinks/delete", (req, res) => {
       res.sendStatus(404);
     });
 });
+
+////////////////////////////////////////////////////////////
+////////////////////////////CLOUDINARY ROUTES**////////////
+
+// drunkRouter.post("/", upload.single("image"), async (req, res) => {
+//   try {
+//     const result = await cloudinary.uploader.upload(req.file.path);
+//     console.log(result);
+//     res.json(result);
+//   } catch (err) {
+//     console.log("LINE 262", err);
+//   }
+//});
 
 module.exports = drunkRouter;
