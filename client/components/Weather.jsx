@@ -28,10 +28,8 @@ const Weather = ({ lat, lon }) => {
       .then((response) => {
         setCity(response.data.name);
         setTemp(response.data.main.temp);
-        setFeels(response.data.main.feels_like);
         setHumid(response.data.main.humidity);
         setWind(response.data.wind.speed);
-        setDescription(response.data.weather[0].description);
       })
       .catch((error) => {
         console.error("ERROR: ", error);
