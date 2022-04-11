@@ -24,22 +24,36 @@ profileRouter.get('/users', (req, res) => {
 
 profileRouter.patch('/sendFriendRequest', (req, res) => {
   
-  User.findOne({ 'username': req.body.username })
-    .then((data) => {
-      if (!data.friendRequests.includes(req.body.from) && !data.friends.includes(req.body.from)) {
-        User.findOneAndUpdate({ 'username': req.body.username }, { $push: { 'friendRequests': req.body.from } }, { new: true })
+  console.log(req.body.from, "req.body.from")
 
+
+  User.findOne({ 'username': req.body.username })
+    .then((requested) => {
+      console.log('Requested persons obj',requested)
+      if (!requested.friendRequests.includes(req.body.from)) {
+        console.log('hit condition')
+        User.findOneAndUpdate({ 'username': req.body.username }, { $push: { 'friendRequests': req.body.from } }, { new: true })
+        .then(() => {
+          res.sendStatus(201)
+        })
+      } else {
+        res.sendStatus(500)
       }
+      
     })
+    .catch(err => console.error(err))
 })
 
 profileRouter.patch('/acceptFriendRequest', (req, res) => {
   const { username } = req.user;
   const { friendRequests } = req.body
-  console.log(friendRequests[0], "friend")
+  // console.log(friendRequests[0], "friend")
 
-  User.findOneAndUpdate({ username }, { $pull: { 'friendRequests': {$in: friendRequests }}}, { new: true })
-    .then(() => User.findOneAndUpdate({ username }, { $push: { 'friends': friendRequests[0] }}, { new: true }))
+  User.findOneAndUpdate({ username }, { $pull: { 'friendRequests': { $in: friendRequests } } }, { new: true })
+    .then(() => User.findOneAndUpdate({ username }, { $push: { 'friends': friendRequests[0] } }, { new: true }))
+    .then(() => {
+      res.sendStatus(201)
+    })
 })
 
 
