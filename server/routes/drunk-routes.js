@@ -22,7 +22,7 @@ const authCheck = (req, res, next) => {
 
 //final redirect upon login
 drunkRouter.get("/", authCheck, (req, res) => {
-  console.log("LINE 23 || DRUNKROUTER || REQ || \n", req);
+  // console.log("LINE 23 || DRUNKROUTER || REQ || \n", req);
   res.redirect(`/${req.user.username}`);
 });
 
