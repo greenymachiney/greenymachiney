@@ -82,25 +82,8 @@ const Events = () => {
         crossOrigin="anonymous"
       />
       <div className="events-header">
-        <h1>Plan a Party!</h1>
+        <h1>EVENTS</h1>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label className="eventName">Event Name: </label>
-          <input placeholder="Event Name" {...register('eventName')} />
-        </div>
-
-        <div>
-          <label className="eventTime">Event Time: </label>
-          <input placeholder="Event Time" {...register('eventTime')} />
-        </div>
-
-        <div>
-          <label className="eventLocation">Event Location: </label>
-          <input placeholder="Event Location" {...register('eventLocation')} />
-        </div>
-        <input type="submit" />
-      </form>
       {events.map((event, i) => (
         <div key={i} className="row">
           <div className="col-sm-6">
@@ -170,6 +153,15 @@ const Events = () => {
             >
               <div className="fab-icon-holder">
                 <i className="fas fa-globe"></i>
+              </div>
+            </Link>
+          </li>
+          <li>
+            <span className="fab-label">Check Weather</span>
+            {/*///////////////////// Linking to "CreateStaticEvent static event view" /////////////////////////*/}
+            <Link to={`${url}/weather`} >
+              <div className="fab-icon-holder">
+              <i className="fas fa-cloud"></i>
               </div>
             </Link>
           </li>

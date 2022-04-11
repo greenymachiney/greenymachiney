@@ -1,6 +1,5 @@
 const { Router } = require('express');
 const weatherRouter = Router();
-
 const { getCurrentWeather } = require('../api/getWeather');
 
 
