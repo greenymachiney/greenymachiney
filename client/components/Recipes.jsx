@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-<<<<<<< HEAD
-=======
-import { Image } from "cloudinary-react";
->>>>>>> 224ef24ff4538bb299fccb7e6c4d85816b79e682
 
 class Recipes extends React.Component {
   constructor(props) {
@@ -64,10 +60,6 @@ class Recipes extends React.Component {
     this.getSavedDrinks();
     this.getUserDrinks();
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> 224ef24ff4538bb299fccb7e6c4d85816b79e682
   render() {
     //const { drinks } = this.state;
     const { userDrinks, drinks } = this.state;
