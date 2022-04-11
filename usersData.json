@@ -1,55 +1,31 @@
 [{
   "_id": {
-    "$oid": "624e08e1e43ff529803f0f34"
+    "$oid": "62537d15769e480e10ec2242"
   },
-  "username": "John Murphy Fleenor",
-  "googleId": "109403537323545615921",
-  "thumbnail": "https://lh3.googleusercontent.com/a-/AOh14Gg98hnBSFIi5ZxpiWjS7ODvH9rovfIV02MnHsTsyw=s96-c",
+  "username": "Rene Mercadel",
+  "googleId": "104479385639115400563",
+  "thumbnail": "https://lh3.googleusercontent.com/a-/AOh14GhkjTlyflQtuhV34V5sipVz6qjP0IyIASX3EvusERU=s96-c",
   "liquorList": [],
   "drinks": [],
   "shoppinglist": [],
-  "events": [],
+  "events": [
+    {
+      "eventName": "Event 5",
+      "eventTime": "time 5",
+      "eventLocation": "Port of Call, Esplanade Avenue, New Orleans, LA, USA",
+      "friends": [
+        "Santo Lococo",
+        "John Murphy Fleenor"
+      ]
+    }
+  ],
+  "userDrinks": [],
+  "friends": [],
+  "friendRequests": [],
   "__v": 0
 },{
   "_id": {
-    "$oid": "624e0cdaf504da11d4fee753"
-  },
-  "username": "Rodolfo Machirica",
-  "googleId": "117594272152113010830",
-  "thumbnail": "https://lh3.googleusercontent.com/a-/AOh14GgzmdKr-eLgTfN0wtAnUhms-b2m776bTsBdr-o-qg=s96-c",
-  "liquorList": [
-    "Vodka"
-  ],
-  "drinks": [],
-  "shoppinglist": [],
-  "events": [],
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "624e0dc8f504da11d4fee778"
-  },
-  "username": "John Dyer",
-  "googleId": "112479434842682699185",
-  "thumbnail": "https://lh3.googleusercontent.com/a-/AOh14GhRCTFD6UD8KgGU35ts3AtF6immfde_F8uFvuePOA=s96-c",
-  "liquorList": [
-    "bourbon",
-    "gin",
-    "vodka"
-  ],
-  "drinks": [],
-  "shoppinglist": [
-    "Gin",
-    "Dry Vermouth",
-    "Olive",
-    "Dark rum",
-    "Light rum",
-    "Vodka"
-  ],
-  "events": [],
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "624e0e15f504da11d4fee792"
+    "$oid": "62537d2c769e480e10ec2248"
   },
   "username": "Santo Lococo",
   "googleId": "110446323164967082856",
@@ -58,5 +34,25 @@
   "drinks": [],
   "shoppinglist": [],
   "events": [],
+  "userDrinks": [],
+  "friends": [],
+  "friendRequests": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62537da8769e480e10ec4b42"
+  },
+  "username": "John Murphy Fleenor",
+  "googleId": "109403537323545615921",
+  "thumbnail": "https://lh3.googleusercontent.com/a-/AOh14Gg98hnBSFIi5ZxpiWjS7ODvH9rovfIV02MnHsTsyw=s96-c",
+  "liquorList": [],
+  "drinks": [
+    "Screaming Orgasm"
+  ],
+  "shoppinglist": [],
+  "events": [],
+  "userDrinks": [],
+  "friends": [],
+  "friendRequests": [],
   "__v": 0
 }]
