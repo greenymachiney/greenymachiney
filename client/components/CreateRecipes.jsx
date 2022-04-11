@@ -66,51 +66,57 @@ const CreateRecipes = () => {
 
   const { recipeName, ingredients, instructions, category, thumbnail } = recipe;
   return (
-    <>
-      <h3>Create a drink recipe!</h3>
+    <div className="recipe-div">
+      <h3 className="header-drink">Create a drink recipe!</h3>
       <br></br>
       <div>
-        <button onClick={showWidget}>Upload Image</button>
-        {thumbnail && (
-          <img src={thumbnail} width="200px" crop="scale" height="100px" />
-        )}
+        <button onClick={showWidget} className="input-btn">
+          Upload Image
+        </button>
         <br></br>
+        {thumbnail && (
+          <img src={thumbnail} width="200px" crop="scale" height="200px" />
+        )}
         <br></br>
         <form onSubmit={saveDrink} className="user-drink">
           <input
+            className="name"
             type="text"
             placeholder="name of recipe"
             value={recipeName}
             name="recipeName"
             onChange={handleInputEvent}
           ></input>
-          <input
+          <textarea
+            className="input"
             type="text"
             placeholder="ingredients"
             value={ingredients}
             name="ingredients"
             onChange={handleInputEvent}
-          ></input>
-          <input
+          ></textarea>
+          <textarea
+            className="input"
             type="text"
             placeholder="instructions"
             value={instructions}
             name="instructions"
             onChange={handleInputEvent}
-          ></input>
+          ></textarea>
           <input
+            className="name"
             type="text"
             placeholder="category"
             value={category}
             name="category"
             onChange={handleInputEvent}
           ></input>
-          <button type="submit" className="recipeSubmit-btn">
-            Save to Drink Book
+          <button type="submit" className="input">
+            Send to Drink Book
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 
