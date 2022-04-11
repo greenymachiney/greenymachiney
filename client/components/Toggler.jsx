@@ -6,17 +6,20 @@ const Button = styled.button`
   background: ${({ theme }) => theme.background};
   border: 1px solid ${({ theme }) => theme.toggleBorder};
   color: ${({ theme }) => theme.text};
-  border-radius: 20px;
+  border-radius: 4px;
+  padding: 0.25em 1em;
+  margin: 1em;
+  font-size: 12px;
   cursor: pointer;
-  font-size:0.8rem;
-  padding: 0.6rem;
   }
 `;
+
+
 
 const Toggle = ({theme,  toggleTheme }) => {
     return (
       <Button onClick={toggleTheme}>
-        Dark Mode
+        Switch Theme
       </Button>
     );
 };
