@@ -1,10 +1,10 @@
-# greenymachiney
+### **CraWLR (Formerly DrinkDat)**
 
-Greenfield Project
+OPSPARK LEGACY PROJECT APRIL 2022
 
 ### overview
 
-This app can be used as a users virtual bar cart, recipe book, shopping list and event planner. Its goal is to be an easy to use interface where users can store information that will help them make cocktails and plan events easily.
+This app can be used as a users virtual bar cart, recipe book, shopping list, event planner, and general all-things-alcohol assistant. Its goal is to be an easy to use interface where users can store information that will help them make cocktails, find supplies, plan events, and organize bar crawls easily.
 
 ### database
 
@@ -12,7 +12,7 @@ We have a mongodb/mongoose database. We have a User schema that holds all the da
 
 ### server
 
-We have an express server. It is set up in server/index.js. We use 4 express routers to separate and organize our routes. These can all be found in server/routes. Our auth-routes are our routes for logging a user in and out with passport. drunk-routes handles most of the routing for the bar cart, drink book, create recipe, and search components. All of these components use the cocktail api. shopping-routes handles the routing for the shopping list. These routes utilize the yelp fusion api to find liquor stores in the area. event-routes handles the events components routing. The videos in drink book utilize the YouTube API and OpenWeather API is used for the weather component in events. Pictures are routed from Cloudinary API to upload in recipe book.
+We have an express server. It is set up in server/index.js. We use 8 express routers to separate and organize our routes. These can all be found in server/routes. Our auth-routes are our routes for logging a user in and out with passport. drunk-routes handles most of the routing for the bar cart, drink book, create recipe, and search components. All of these components use the cocktail api. shopping-routes handles the routing for the shopping list. These routes utilize the yelp fusion api to find liquor stores in the area. event-routes handles the events components routing. The videos in drink book utilize the YouTube API and OpenWeather API is used for the weather component in events. Pictures are routed from Cloudinary API to upload in recipe book.
 
 ### authentication
 
@@ -20,7 +20,7 @@ Our authentication is handled with oauth and passport. Our passport setup can be
 
 ### apis
 
-We user two external apis for this project:
+We used two external apis for this project:
 
 1. Cocktail Api - https://www.thecocktaildb.com/api.php
    This api allows us to search for drink recipes randomly, by name, and by ingredient. We utilize this in our bar cart, drink book, and search components. The api calls are written in the functions located in server/api/getCocktail
@@ -36,7 +36,21 @@ We user two external apis for this project:
 
 5. OpenWeather API - This api allows users to input their current location and return the current weather conditions. The api calls are written in the function located in server/api/getWeather.
 
+6. Google Maps Platform API - https://console.cloud.google.com/google/maps-apis/overview?project=recastly-342523
+   By creating a Google Maps API key you can use the Places API (location based autofill in the location picker on the new party page), the Google Maps Javascript API (to incorporate google map components into the new party page), and the Geolocation API with a single key.
+
 The keys for these apis as well as our google oauth & cloudinary credentials are located in .env in the root directory with the exception of the cocktail api key which can be found in the /config/keys.js file.
+
+### .env keys required
+
+1. GOOGLE_CLIENT_ID=
+2. GOOGLE_CLIENT_SECRET=
+3. YELP_CLIENT_ID=
+4. YELP_API_KEY=
+5. NEXT_PUBLIC_GOOGLE_MAP_SERVICES_API_KEY=
+6. MONGO_URI=
+7. YOUTUBE_API_KEY=
+8. WEATHER_API_KEY=
 
 ### front end
 
@@ -75,3 +89,9 @@ in /config folder, make a file named `keys.js`. The file needs the following inf
 
 `npm run dev` to run webpack<br>
 `npm start` to start the server on port 3000<br>
+
+### **KNOWN BUGS, ISSUES, UNFINISHED FEATURES**
+
+1. When hovering over the Floating Action Button on the events page to expose the 3 smaller option buttons, be aware the bar crawl page has no implemented functionality
+
+2. The dark mode theme isn't fully implemented. Known elements that are not affected by the dark mode switch are the navbar, most or all text fields, most or all display cards (for events, recipes, saved drinks, etc...). Also, the profile page text is the same color as the current dark mode background; as a result the user can't view profile text in dark mode. This is likely an issue elsewhere.
