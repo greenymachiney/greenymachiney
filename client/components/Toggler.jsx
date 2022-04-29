@@ -23,6 +23,8 @@ const Toggle = ({theme,  toggleTheme }) => {
       </Button>
     );
 };
+
+
 Toggle.propTypes = {
     theme: string.isRequired,
     toggleTheme: func.isRequired,
