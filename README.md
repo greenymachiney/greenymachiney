@@ -1,4 +1,6 @@
-# OPSPARK LEGACY PROJECT APRIL 2022
+### **CraWLR (Formerly DrinkDat)**
+
+OPSPARK LEGACY PROJECT APRIL 2022
 
 ### overview
 
@@ -34,7 +36,8 @@ We used two external apis for this project:
 
 5. OpenWeather API - This api allows users to input their current location and return the current weather conditions. The api calls are written in the function located in server/api/getWeather.
 
-6. Google Maps Platform API
+6. Google Maps Platform API - https://console.cloud.google.com/google/maps-apis/overview?project=recastly-342523
+   By creating a Google Maps API key you can use the Places API (location based autofill in the location picker on the new party page), the Google Maps Javascript API (to incorporate google map components into the new party page), and the Geolocation API with a single key.
 
 The keys for these apis as well as our google oauth & cloudinary credentials are located in .env in the root directory with the exception of the cocktail api key which can be found in the /config/keys.js file.
 
